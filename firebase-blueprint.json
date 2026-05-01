@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "Inscricao": {
+      "title": "Inscrição",
+      "description": "Dados de inscrição dos leads capturados na landing page.",
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "description": "Nome completo do inscrito"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Endereço de e-mail"
+        },
+        "whatsapp": {
+          "type": "string",
+          "description": "Número de WhatsApp com DDI e DDD"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora da inscrição"
+        }
+      },
+      "required": ["nome", "email", "whatsapp", "createdAt"]
+    }
+  },
+  "firestore": {
+    "inscricoes/{id}": {
+      "schema": "Inscricao",
+      "description": "Coleção de inscrições de leads."
+    }
+  }
+}

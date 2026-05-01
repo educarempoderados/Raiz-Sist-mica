@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-bg: #fdfaf6;
+  --color-brand-ink: #2d2922;
+  --color-brand-accent: #c5a059; /* Gold */
+  --color-brand-terra: #8B4513; /* Keep terracotta for accents if needed, though theme is gold */
+  --color-brand-olive: #5d664c;
+  --color-brand-gold-light: #e5d5b5;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-ink font-sans antialiased;
+  }
+}
+
+.serif {
+  font-family: var(--font-serif);
+}

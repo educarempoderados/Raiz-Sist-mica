@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      // Check if user is in the admins collection
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Validation for Inscrição
+    function isValidInscricao(data) {
+      return data.keys().hasAll(['nome', 'email', 'whatsapp', 'createdAt'])
+        && data.keys().size() == 4
+        && data.nome is string && data.nome.size() >= 2 && data.nome.size() <= 100
+        && data.email is string && data.email.size() <= 100 && data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
+        && data.whatsapp is string && data.whatsapp.size() >= 10 && data.whatsapp.size() <= 20
+        && data.createdAt == request.time;
+    }
+
+    match /inscricoes/{id} {
+      allow create: if isValidId(id) && isValidInscricao(incoming());
+      allow get, list: if isAdmin();
+      allow update, delete: if isAdmin();
+    }
+
+    match /admins/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+      allow write: if false; // Only manageable via console or special script
+    }
+  }
+}
