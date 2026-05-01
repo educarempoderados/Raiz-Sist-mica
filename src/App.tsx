@@ -47,6 +47,7 @@ type RegistrationData = z.infer<typeof registrationSchema>;
 export default function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [savedData, setSavedData] = useState<RegistrationData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const {
@@ -60,6 +61,20 @@ export default function App() {
   });
 
   const whatsappValue = watch("whatsapp");
+
+  // Check for existing registration on mount
+  useEffect(() => {
+    const data = localStorage.getItem('inscricao_raiz_sistemica');
+    if (data) {
+      try {
+        const parsed = JSON.parse(data);
+        setSavedData(parsed);
+        setIsSubmitted(true);
+      } catch (e) {
+        localStorage.removeItem('inscricao_raiz_sistemica');
+      }
+    }
+  }, []);
 
   // Phone masking logic
   useEffect(() => {
@@ -81,6 +96,10 @@ export default function App() {
         ...data,
         createdAt: serverTimestamp()
       });
+      
+      // Save locally
+      localStorage.setItem('inscricao_raiz_sistemica', JSON.stringify(data));
+      setSavedData(data);
       setIsSubmitted(true);
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, 'inscricoes');
@@ -236,6 +255,23 @@ export default function App() {
               <h2 className="serif text-3xl md:text-4xl mb-6 text-brand-ink">
                 Obrigado por se inscrever na aula!
               </h2>
+              
+              {savedData && (
+                <div className="mb-8 inline-grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-2xl mx-auto w-full">
+                  <div className="bg-brand-bg/50 p-4 rounded-xl border border-brand-ink/5">
+                    <span className="text-[10px] uppercase font-bold text-brand-ink/30 block mb-1">Nome</span>
+                    <p className="text-sm font-medium text-brand-ink">{savedData.nome}</p>
+                  </div>
+                  <div className="bg-brand-bg/50 p-4 rounded-xl border border-brand-ink/5">
+                    <span className="text-[10px] uppercase font-bold text-brand-ink/30 block mb-1">E-mail</span>
+                    <p className="text-sm font-medium text-brand-ink truncate">{savedData.email}</p>
+                  </div>
+                  <div className="bg-brand-bg/50 p-4 rounded-xl border border-brand-ink/5">
+                    <span className="text-[10px] uppercase font-bold text-brand-ink/30 block mb-1">WhatsApp</span>
+                    <p className="text-sm font-medium text-brand-ink">{savedData.whatsapp}</p>
+                  </div>
+                </div>
+              )}
               
               <div className="max-w-xl mx-auto space-y-6 text-brand-ink/80 mb-12">
                 <p className="text-lg">
