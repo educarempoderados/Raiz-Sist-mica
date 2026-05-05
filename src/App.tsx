@@ -125,7 +125,7 @@ export default function App() {
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       {/* Top Bar */}
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         📅 14 de maio | ⏰ 20h | 💻 Online ao vivo no YouTube
+         📅 21 de maio | ⏰ 20h | 💻 Online ao vivo no YouTube
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -168,7 +168,7 @@ export default function App() {
                     >
                       <div className="text-center mb-10">
                         <h2 className="serif text-3xl md:text-4xl mb-4 text-brand-accent">Garanta sua Vaga Gratuita</h2>
-                        <div className="h-1 w-20 bg-brand-white/20 mx-auto" />
+                        <p className="text-white/50 text-[10px] uppercase font-bold tracking-[0.2em]">Aula Gratuita — 21 de Maio</p>
                       </div>
 
                       <div className="space-y-6">
@@ -260,11 +260,11 @@ export default function App() {
                 </div>
               </section>
 
-              {/* VIRADA DE CHAVE E 5 PILARES */}
+              {/* INTRODUÇÃO DOS 5 PILARES */}
               <section className="py-24 md:py-40 px-6 bg-white">
                 <div className="max-w-5xl mx-auto text-center">
-                  <h2 className="serif text-4xl md:text-6xl mb-12 text-brand-ink">Os 5 Pilares da Sua Vida</h2>
-                  <p className="text-xl md:text-2xl text-brand-ink opacity-60 mb-20 max-w-2xl mx-auto">
+                  <h2 className="serif text-4xl md:text-7xl mb-12 text-brand-ink leading-tight">Os 5 Pilares da Sua Vida</h2>
+                  <p className="text-xl md:text-2xl text-brand-ink font-light opacity-80 mb-20 max-w-3xl mx-auto">
                     Talvez você esteja tentando resolver sua vida olhando só para uma parte dela. Entenda o que sustenta você:
                   </p>
                   
@@ -276,8 +276,8 @@ export default function App() {
                     <PillarSquare name="Sistema Familiar" number="05" />
                   </div>
 
-                  <div className="mt-20 p-10 bg-brand-red text-white">
-                    <p className="text-2xl md:text-3xl font-black uppercase tracking-widest leading-tight">
+                  <div className="mt-20 p-10 bg-brand-red text-white shadow-2xl">
+                    <p className="text-2xl md:text-4xl font-black uppercase tracking-widest leading-tight">
                       Quando um pilar trava, a vida inteira pesa.
                     </p>
                   </div>
@@ -304,28 +304,59 @@ export default function App() {
                 </div>
               </section>
 
+              {/* PROVA SOCIAL (VÍDEOS) */}
+              <section className="py-24 md:py-40 px-6 bg-white border-t border-brand-ink/5">
+                <div className="max-w-6xl mx-auto">
+                  <div className="text-center mb-20">
+                    <h2 className="serif text-4xl md:text-7xl text-brand-ink mb-6">Histórias Reais de Transformação</h2>
+                    <p className="text-xl md:text-2xl text-brand-ink/70 font-light">Veja quem já aplicou os 5 pilares e mudou sua realidade</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                      <iframe 
+                        className="w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Depoimento 1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                      <iframe 
+                        className="w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Depoimento 2"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               {/* AUTORIDADE */}
-              <section className="py-24 md:py-40 px-6">
+              <section className="py-24 md:py-40 px-6 bg-brand-petroleum-light">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                  <div className="relative group grayscale hover:grayscale-0 transition-all duration-1000">
-                    <div className="absolute -inset-6 bg-brand-red/5 -z-10 group-hover:bg-brand-red/10 transition-all" />
+                  <div className="relative group">
+                    <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img 
                       src="https://images.unsplash.com/photo-1544168190-79c17527004f?q=80&w=800" 
                       alt="Roberto Firmino" 
-                      className="w-full aspect-[4/5] object-cover shadow-2xl border-b-8 border-brand-ink"
+                      className="w-full aspect-[4/5] object-cover shadow-2xl border-b-[10px] border-brand-ink grayscale hover:grayscale-0 transition-all duration-1000"
                     />
                   </div>
                   <div className="space-y-10">
-                    <h3 className="serif text-4xl md:text-6xl text-brand-ink">Roberto Firmino dos Santos</h3>
-                    <p className="text-xl md:text-2xl font-bold text-brand-red uppercase tracking-widest">
+                    <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight">Roberto Firmino dos Santos</h3>
+                    <p className="text-xl md:text-3xl font-black text-brand-red uppercase tracking-wider">
                       Especialista em dor crônica, sistema familiar e prosperidade.
                     </p>
-                    <div className="space-y-8 text-xl text-brand-ink font-light leading-relaxed">
-                      <p>
-                        "Ajudo principalmente mulheres 30+ a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e destravando sua relação com o dinheiro."
+                    <div className="space-y-8 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
+                      <p className="font-bold border-l-4 border-brand-accent pl-6">
+                        Libere-se das dores físicas e emocionais, curando a raiz nas memórias familiares e destravando sua relação com o dinheiro, com resultados já no primeiro mês e evolução em até 6 meses.
                       </p>
                       <p>
-                        Ao entender que dores e bloqueios não têm explicação apenas no individual, desenvolvi uma abordagem que integra corpo, emoção e sistema familiar para destravar a prosperidade.
+                        Ao entender que dores e bloqueios não têm explicação apenas no individual, Roberto Firmino integrou corpo, emoção e sistema familiar para oferecer uma visão completa da vida e da saúde.
                       </p>
                     </div>
                   </div>
@@ -408,7 +439,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start mb-20 border-b border-white/10 pb-20">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Data Reservada</p>
-              <p className="serif text-3xl">14 de Maio às 20h</p>
+              <p className="serif text-3xl">21 de Maio às 20h</p>
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Transmissão</p>
