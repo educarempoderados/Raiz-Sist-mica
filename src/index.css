@@ -5,12 +5,13 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   
-  --color-brand-bg: #fdfaf6;
-  --color-brand-ink: #2d2922;
-  --color-brand-accent: #c5a059; /* Gold */
-  --color-brand-terra: #8B4513; /* Keep terracotta for accents if needed, though theme is gold */
-  --color-brand-olive: #5d664c;
-  --color-brand-gold-light: #e5d5b5;
+  --color-brand-bg: #FFFFFF;
+  --color-brand-ink: #0A1E2D; /* Deep Petroleum Blue */
+  --color-brand-accent: #C5A059; /* Gold */
+  --color-brand-olive: #556B2F; /* Rich Olive Green */
+  --color-brand-petroleum: #1A3A4A; /* Petroleum Blue */
+  --color-brand-petroleum-light: #F0F4F8;
+  --color-brand-gold-light: #F4EFE6;
 }
 
 @layer base {
