@@ -6,20 +6,25 @@
   --font-serif: "Playfair Display", serif;
   
   --color-brand-bg: #FFFFFF;
-  --color-brand-ink: #051018; /* Deep Petroleum Blue (Almost Black) */
-  --color-brand-accent: #FF4500; /* Orange-Red (Vibrant) */
-  --color-brand-red: #E3120B; /* Vibrant Red for highlights */
-  --color-brand-petroleum: #0A1E2D; /* Petroleum Blue */
-  --color-brand-petroleum-light: #F0F4F8;
-  --color-brand-gold-light: #F4EFE6;
+  --color-brand-ink: #02080C; /* Even deeper blue for extreme contrast */
+  --color-brand-accent: #FF4500; /* Vibrant Orange-Red */
+  --color-brand-red: #D71913; 
+  --color-brand-petroleum: #0A1E2D;
+  --color-brand-petroleum-light: #F1F5F9;
+  --color-brand-gold-light: #FAF7F2;
   --color-brand-white: #FFFFFF;
 }
 
 @layer base {
   body {
-    @apply bg-brand-bg text-brand-ink font-sans antialiased;
+    @apply bg-brand-bg text-brand-ink font-sans antialiased text-[16px];
   }
 }
+
+/* Ensure no text is smaller than 11px/12px */
+.text-\[9px\] { font-size: 11px !important; }
+.text-\[8px\] { font-size: 11px !important; }
+.text-[10px], .text-xs { font-size: 12px !important; }
 
 .serif {
   font-family: var(--font-serif);
