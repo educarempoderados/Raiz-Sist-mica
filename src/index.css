@@ -6,12 +6,13 @@
   --font-serif: "Playfair Display", serif;
   
   --color-brand-bg: #FFFFFF;
-  --color-brand-ink: #0A1E2D; /* Deep Petroleum Blue */
-  --color-brand-accent: #C5A059; /* Gold */
-  --color-brand-olive: #556B2F; /* Rich Olive Green */
-  --color-brand-petroleum: #1A3A4A; /* Petroleum Blue */
+  --color-brand-ink: #051018; /* Deep Petroleum Blue (Almost Black) */
+  --color-brand-accent: #FF4500; /* Orange-Red (Vibrant) */
+  --color-brand-red: #E3120B; /* Vibrant Red for highlights */
+  --color-brand-petroleum: #0A1E2D; /* Petroleum Blue */
   --color-brand-petroleum-light: #F0F4F8;
   --color-brand-gold-light: #F4EFE6;
+  --color-brand-white: #FFFFFF;
 }
 
 @layer base {
