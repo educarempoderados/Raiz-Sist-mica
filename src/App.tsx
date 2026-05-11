@@ -101,7 +101,7 @@ export default function App() {
         await addDoc(collection(db, 'inscricoes'), {
           ...data,
           createdAt: serverTimestamp(),
-          source: 'Os 5 Pilares'
+          source: 'A Raiz Sistêmica'
         });
         setIsAlreadyRegistered(false);
       }
@@ -109,6 +109,7 @@ export default function App() {
       localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify(data));
       setSavedData(data);
       setIsSubmitted(true);
+      window.scrollTo(0, 0);
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, 'inscricoes');
       setError("Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente.");
@@ -125,7 +126,7 @@ export default function App() {
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       {/* Top Bar */}
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         📅 21 de maio | ⏰ 20h | 💻 Online ao vivo no YouTube
+         🗓 Aula Ao Vivo e Gratuita | Data: 21/05/2026 | Horário: 20h
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -144,17 +145,17 @@ export default function App() {
                 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                   <div className="pt-4">
+                    <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Você já percebeu que, por mais que se esforce, sua saúde e seu bolso continuam presos nos mesmos padrões?</p>
                     <h1 className="serif text-4xl md:text-7xl font-bold leading-tight mb-8 text-brand-ink">
-                      Seu corpo dói, sua mente não para e <span className="text-brand-accent">sua vida não anda?</span>
+                      SUA COLUNA TRAVA, O JOELHO DÓI OU O <span className="text-brand-accent">CIÁTICO NÃO DÁ TRÉGUA?</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
-                      Participe da aula gratuita e descubra como aliviar dores físicas, organizar suas emoções e <strong className="text-brand-red">destravar sua vida</strong> — começando pelo que realmente está por trás disso.
+                      A dor lombar, a queimação na coluna e a escassez financeira não são castigos — são mensagens. Descubra como silenciar a dor física e emocional que está travando a sua vida e a sua prosperidade.
                     </p>
                     
-                    <div className="flex items-center gap-4 p-6 bg-brand-petroleum-light border border-brand-petroleum/10 shadow-sm">
-                      <Lock className="w-6 h-6 text-brand-red shrink-0" />
+                    <div className="flex items-center gap-4 p-6 bg-brand-petroleum-light border border-brand-petroleum/10 shadow-sm border-l-8 border-l-brand-accent">
                       <p className="text-sm md:text-base font-bold text-brand-petroleum uppercase tracking-wider">
-                        O acesso exclusivo será enviado apenas para quem se inscrever
+                        Aprenda a destravar a raiz sistêmica da dor e reorganize a sua história para viver sem limitações.
                       </p>
                     </div>
                   </div>
@@ -167,8 +168,10 @@ export default function App() {
                       className="bg-brand-ink text-white p-8 md:p-12 shadow-2xl relative border-t-8 border-brand-accent"
                     >
                       <div className="text-center mb-10">
-                        <h2 className="serif text-3xl md:text-4xl mb-4 text-brand-accent">Garanta sua Vaga Gratuita</h2>
-                        <p className="text-white/50 text-[10px] uppercase font-bold tracking-[0.2em]">Aula Gratuita — 21 de Maio</p>
+                        <h2 className="serif text-2xl md:text-3xl mb-4 text-brand-accent">Garante sua vaga gratuita</h2>
+                        <p className="text-white/50 text-[11px] font-bold tracking-[0.1em] leading-relaxed uppercase">
+                          ⚠️ Atenção: As vagas são limitadas e o link de acesso à aula será enviado exclusivamente no nosso Grupo VIP do WhatsApp.
+                        </p>
                       </div>
 
                       <div className="space-y-6">
@@ -219,7 +222,7 @@ export default function App() {
                         >
                           {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : (
                             <>
-                              QUERO PARTICIPAR AGORA
+                              🚀 QUERO GARANTIR MINHA VAGA E ENTRAR NO GRUPO
                               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                             </>
                           )}
@@ -241,12 +244,12 @@ export default function App() {
                 <div className="max-w-6xl mx-auto px-6">
                   <h2 className="serif text-4xl md:text-6xl text-center mb-20">Se você sente que:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <IdentificationCard text="Acorda já cansada, como se não tivesse descansado" />
-                    <IdentificationCard text="Convive com dores no corpo que vão e voltam" />
-                    <IdentificationCard text="Sua mente não desacelera" />
-                    <IdentificationCard text="Você tenta organizar a vida… mas nada flui" />
-                    <IdentificationCard text="Começa coisas e não consegue manter" />
-                    <IdentificationCard text="O dinheiro nunca fica ou nunca é suficiente" />
+                    <IdentificationCard text="Convive com dores na lombar, coluna ou joelhos que nunca passam" />
+                    <IdentificationCard text="O ciático ataca e você se sente limitada para viver" />
+                    <IdentificationCard text="Acorda já cansada, como se não tivesse descansado nada" />
+                    <IdentificationCard text="Sua mente não desacelera e a ansiedade te consome" />
+                    <IdentificationCard text="Você tenta organizar a vida… mas o dinheiro nunca sobra" />
+                    <IdentificationCard text="Sente um peso nos ombros que não parece ser seu" />
                   </div>
                   
                   <div className="mt-24 text-center">
@@ -260,26 +263,37 @@ export default function App() {
                 </div>
               </section>
 
-              {/* INTRODUÇÃO DOS 5 PILARES */}
-              <section className="py-24 md:py-40 px-6 bg-white">
-                <div className="max-w-5xl mx-auto text-center">
-                  <h2 className="serif text-4xl md:text-7xl mb-12 text-brand-ink leading-tight">Os 5 Pilares da Sua Vida</h2>
-                  <p className="text-xl md:text-2xl text-brand-ink font-light opacity-80 mb-20 max-w-3xl mx-auto">
-                    Talvez você esteja tentando resolver sua vida olhando só para uma parte dela. Entenda o que sustenta você:
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                    <PillarSquare name="Saúde Física" number="01" />
-                    <PillarSquare name="Saúde Emocional" number="02" />
-                    <PillarSquare name="Saúde Espiritual" number="03" />
-                    <PillarSquare name="Saúde Financeira" number="04" />
-                    <PillarSquare name="Sistema Familiar" number="05" />
-                  </div>
-
-                  <div className="mt-20 p-10 bg-brand-red text-white shadow-2xl">
-                    <p className="text-2xl md:text-4xl font-black uppercase tracking-widest leading-tight">
-                      Quando um pilar trava, a vida inteira pesa.
+              {/* OS 5 PILARES */}
+              <section className="py-24 md:py-40 px-6 bg-brand-petroleum-light">
+                <div className="max-w-5xl mx-auto">
+                  <div className="text-center mb-20">
+                    <h2 className="serif text-3xl md:text-5xl text-brand-ink">A Reorganização dos 5 Pilares</h2>
+                    <p className="mt-6 text-xl text-brand-ink/70 font-light max-w-2xl mx-auto">
+                      Nesta aula exclusiva, vou abrir a "caixa-preta" do meu método para te mostrar como curar as desordens que afetam sua vida:
                     </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <PillarCard 
+                      title="Físico" 
+                      text="Como dores crônicas (como a Fibromialgia) estão diretamente ligadas ao que você carrega dos seus ancestrais." 
+                    />
+                    <PillarCard 
+                      title="Emocional" 
+                      text="A libertação do estado de 'vítima' para assumir a postura de adulta protagonista." 
+                    />
+                    <PillarCard 
+                      title="Financeiro" 
+                      text="Por que o seu extrato bancário é o reflexo exato da sua árvore genealógica." 
+                    />
+                    <PillarCard 
+                      title="Mental" 
+                      text="Como quebrar o estado de alerta constante que gera ansiedade e autossabotagem." 
+                    />
+                    <PillarCard 
+                      title="Sistema Familiar" 
+                      text="Onde tudo começa. Identifique e quebre as lealdades invisíveis que te impedem de ser o próximo sucesso da sua família." 
+                    />
                   </div>
                 </div>
               </section>
@@ -347,16 +361,16 @@ export default function App() {
                     />
                   </div>
                   <div className="space-y-10">
-                    <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight">Roberto Firmino dos Santos</h3>
-                    <p className="text-xl md:text-3xl font-black text-brand-red uppercase tracking-wider">
-                      Especialista em dor crônica, sistema familiar e prosperidade.
+                    <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight">Com quem você vai aprender?</h3>
+                    <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-wider">
+                      Roberto Firmino dos Santos
                     </p>
                     <div className="space-y-8 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
                       <p className="font-bold border-l-4 border-brand-accent pl-6">
-                        Libere-se das dores físicas e emocionais, curando a raiz nas memórias familiares e destravando sua relação com o dinheiro, com resultados já no primeiro mês e evolução em até 6 meses.
+                        Você não vai ouvir teorias de quem leu meia dúzia de livros. Será guiada por quem saiu da faxina para mentorar bilionários.
                       </p>
                       <p>
-                        Ao entender que dores e bloqueios não têm explicação apenas no individual, Roberto Firmino integrou corpo, emoção e sistema familiar para oferecer uma visão completa da vida e da saúde.
+                        São 30 anos de prática clínica unindo Constelação, Cinesiologia Aplicada e Gestão real. Ele entende a dor física porque curou centenas, e entende de dinheiro porque viveu a transformação na pele.
                       </p>
                     </div>
                   </div>
@@ -366,15 +380,14 @@ export default function App() {
               {/* FINAL CTA */}
               <section className="py-24 md:py-40 px-6 text-center bg-brand-ink text-white">
                 <div className="max-w-3xl mx-auto">
-                  <h2 className="serif text-4xl md:text-7xl mb-12 text-brand-accent leading-tight">Sua nova história começa aqui.</h2>
-                  <p className="text-2xl text-white/60 mb-16 font-light">Garanta sua vaga gratuita agora mesmo.</p>
+                  <h2 className="serif text-4xl md:text-7xl mb-12 text-brand-accent leading-tight">O seu sistema familiar espera por coragem.</h2>
+                  <p className="text-2xl text-white/60 mb-16 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
                   <button 
                     onClick={scrollToForm}
                     className="bg-brand-accent text-white font-black px-16 py-8 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
                   >
-                    QUERO PARTICIPAR DA AULA
+                    🚀 QUERO GARANTIR MINHA VAGA
                   </button>
-                  <p className="mt-12 text-xs font-black uppercase tracking-[0.3em] opacity-40">Vagas limitadas por conta da plataforma</p>
                 </div>
               </section>
             </motion.div>
@@ -383,49 +396,78 @@ export default function App() {
               key="confirmation"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-20 md:py-32 px-6 max-w-5xl mx-auto"
+              className="py-12 md:py-20 px-6 max-w-6xl mx-auto"
             >
-              {isAlreadyRegistered && (
-                <div className="mb-10 bg-brand-petroleum-light py-4 px-8 border-l-4 border-brand-accent inline-flex items-center gap-4 text-brand-petroleum animate-bounce">
-                  <UserCheck className="w-6 h-6" />
-                  <span className="text-base font-black uppercase tracking-widest">Você já está inscrita no sistema!</span>
+              <div className="text-center mb-20">
+                {isAlreadyRegistered && (
+                  <div className="mb-8 bg-brand-petroleum-light py-4 px-8 border-l-4 border-brand-accent inline-flex items-center gap-4 text-brand-petroleum">
+                    <UserCheck className="w-6 h-6" />
+                    <span className="text-base font-black uppercase tracking-widest">Você já está inscrita no sistema!</span>
+                  </div>
+                )}
+                
+                <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-red leading-tight font-black uppercase">
+                  🚨 FALTA SÓ MAIS UM PASSO PARA CONFIRMAR SUA INSCRIÇÃO!
+                </h2>
+                
+                <div className="max-w-3xl mx-auto p-10 bg-brand-petroleum-light shadow-sm mb-12">
+                  <p className="text-xl md:text-2xl leading-relaxed text-brand-ink font-light">
+                    O seu cadastro está quase pronto, mas o link da aula <strong className="text-brand-red">não será enviado por e-mail</strong>. Para evitar que você perca essa oportunidade, o acesso será liberado APENAS dentro do Grupo VIP do WhatsApp.
+                  </p>
                 </div>
-              )}
 
-              <div className="w-24 h-24 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-12 shadow-2xl shadow-brand-red/30">
-                <CheckCircle2 className="w-12 h-12 text-white" />
+                <a
+                  href={WHATSAPP_GROUP_URL}
+                  target="_blank"
+                  rel="no-referrer"
+                  className="inline-flex items-center justify-center gap-6 bg-[#25D366] text-white font-black px-12 py-8 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-xl uppercase tracking-widest group active:scale-95"
+                >
+                  <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
+                  ✅ CLIQUE AQUI PARA ENTRAR NO GRUPO VIP AGORA
+                </a>
+                
+                <p className="mt-8 text-sm font-bold text-brand-ink/40 uppercase tracking-widest">
+                  Fique tranquila: o grupo é silenciado e só nossa equipe enviará os avisos importantes.
+                </p>
               </div>
-              
-              <h2 className="serif text-4xl md:text-7xl mb-16 text-brand-ink leading-tight">Passo Final <br className="hidden md:block" /> <span className="text-brand-red">Para Receber o Link</span></h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left mb-20 items-start">
-                <div className="bg-brand-ink text-white p-10 space-y-8 shadow-2xl border-b-8 border-brand-accent">
-                  <h3 className="serif text-2xl text-brand-accent uppercase tracking-widest">Regras do Grupo</h3>
-                  <div className="space-y-6">
-                    <RuleItem icon={<BellRing className="w-5 h-5" />} text="Grupo Silencioso: Apenas administradores enviam mensagens." />
-                    <RuleItem icon={<ShieldCheck className="w-5 h-5" />} text="Segurança Total: Sem ofertas extras ou spam de terceiros." />
-                    <RuleItem icon={<MessageCircle className="w-5 h-5" />} text="Link Exclusivo: O link será enviado apenas no dia da aula via WhatsApp." />
+
+              {/* AQUECIMENTO / SEÇÃO DE VENDA DA AULA */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-brand-ink/10 pt-20 items-start">
+                <div className="space-y-10">
+                  <div>
+                    <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">Enquanto o dia 21/05 não chega...</span>
+                    <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight">Conheça a base do Programa: A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR</h3>
+                  </div>
+                  <div className="space-y-6 text-lg md:text-xl text-brand-ink font-light leading-relaxed">
+                    <p>
+                      Muitas pessoas tentam trabalhar mais ou trocar de emprego para ganhar dinheiro. Outras tomam remédios fortes tentando calar a dor no corpo.
+                    </p>
+                    <p className="font-bold text-brand-red italic">
+                      O que elas não sabem é que o prejuízo financeiro e a dor crônica vêm do mesmo bloqueio inconsciente.
+                    </p>
+                    <p>
+                      Não é falta de sorte. Não é misticismo. É ciência sistêmica. Na nossa aula ao vivo, você vai entender a essência do método que está limpando memórias de luto, falências e segredos.
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-8 py-4">
-                  <p className="text-2xl font-light text-brand-ink leading-relaxed">
-                    Entre agora no grupo de avisos para garantir que você não perderá a transmissão no YouTube.
-                  </p>
+                <div className="bg-brand-ink text-white p-10 md:p-16 shadow-2xl relative border-l-8 border-brand-accent">
+                  <h4 className="serif text-3xl text-brand-accent uppercase tracking-widest mb-12">O que você vai descobrir com esse método:</h4>
                   
-                  <a
-                    href={WHATSAPP_GROUP_URL}
-                    target="_blank"
-                    rel="no-referrer"
-                    className="w-full inline-flex items-center justify-center gap-6 bg-[#25D366] text-white font-black px-10 py-8 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-base uppercase tracking-widest group active:scale-95"
-                  >
-                    <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                    ENTRAR NO GRUPO AGORA
-                  </a>
-                  
-                  <p className="text-xs font-black text-brand-red uppercase tracking-widest text-center animate-pulse">
-                    ⚠️ Importante: Muitos e-mails caem no spam. O WhatsApp é a única via garantida.
-                  </p>
+                  <div className="space-y-10">
+                    <DiscoveryItem 
+                      title="A Transição de Postura" 
+                      text="Como sair da postura infantil e vitimista perante a vida e assumir a posição de adulto, o único capaz de gerar verdadeira abundância." 
+                    />
+                    <DiscoveryItem 
+                      title="O Sintoma é um Mensageiro" 
+                      text="A doença não é o problema, mas a tentativa do seu corpo de alertar que a estrutura familiar está fora de ordem." 
+                    />
+                    <DiscoveryItem 
+                      title="Destravando a Prosperidade" 
+                      text="Como limpar as memórias de luto, falências e dores do passado para não precisar repetir os fracassos dos seus antepassados por 'lealdade invisível'." 
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -459,6 +501,24 @@ export default function App() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function PillarCard({ title, text }: { title: string, text: string }) {
+  return (
+    <div className="p-8 bg-white shadow-xl shadow-brand-ink/5 border-t-4 border-brand-accent hover:-translate-y-2 transition-all group">
+      <h4 className="serif text-2xl mb-4 text-brand-ink group-hover:text-brand-accent transition-colors">{title}</h4>
+      <p className="text-base text-brand-ink/70 leading-relaxed">{text}</p>
+    </div>
+  );
+}
+
+function DiscoveryItem({ title, text }: { title: string, text: string }) {
+  return (
+    <div className="space-y-2">
+      <h5 className="text-lg font-black uppercase tracking-widest text-brand-accent">/ {title}</h5>
+      <p className="text-lg text-white/70 leading-relaxed font-light">{text}</p>
     </div>
   );
 }
