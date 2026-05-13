@@ -17,6 +17,7 @@ import {
   BellRing,
   UserCheck
 } from 'lucide-react';
+import robertoImg from './roberto.jpeg';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { db, handleFirestoreError, OperationType } from './lib/firebase';
@@ -145,9 +146,9 @@ export default function App() {
                 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                   <div className="pt-4">
-                    <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Você já percebeu que, por mais que se esforce, sua saúde e seu bolso continuam presos nos mesmos padrões?</p>
-                    <h1 className="serif text-4xl md:text-7xl font-bold leading-tight mb-8 text-brand-ink">
-                      SUA COLUNA TRAVA, O JOELHO DÓI OU O <span className="text-brand-accent">CIÁTICO NÃO DÁ TRÉGUA?</span>
+                    <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
+                    <h1 className="serif text-4xl md:text-7xl font-bold leading-tight mb-8 text-brand-ink uppercase">
+                      DOR NA COLUNA, DOR NO OMBRO, DOR CRÔNICA E DOENÇA CRÔNICA, <span className="text-brand-accent">ANSIEDADE E DEPRESSÃO.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
                       A dor lombar, a queimação na coluna e a escassez financeira não são castigos — são mensagens. Descubra como silenciar a dor física e emocional que está travando a sua vida e a sua prosperidade.
@@ -155,7 +156,7 @@ export default function App() {
                     
                     <div className="flex items-center gap-4 p-6 bg-brand-petroleum-light border border-brand-petroleum/10 shadow-sm border-l-8 border-l-brand-accent">
                       <p className="text-sm md:text-base font-bold text-brand-petroleum uppercase tracking-wider">
-                        Aprenda a destravar a raiz sistêmica da dor e reorganize a sua história para viver sem limitações.
+                        O CAMINHO PRÁTICO: COMO CURAR DORES CRÔNICAS, VENCER A ANSIEDADE E DESTRAVAR SUAS FINANÇAS NO PRIMEIRO MÊS.
                       </p>
                     </div>
                   </div>
@@ -355,9 +356,10 @@ export default function App() {
                   <div className="relative group">
                     <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img 
-                      src="https://images.unsplash.com/photo-1544168190-79c17527004f?q=80&w=800" 
-                      alt="Roberto Firmino" 
-                      className="w-full aspect-[4/5] object-cover shadow-2xl border-b-[10px] border-brand-ink grayscale hover:grayscale-0 transition-all duration-1000"
+                      src={robertoImg} 
+                      alt="Roberto Firmino dos Santos - Especialista" 
+                      className="w-full aspect-[4/5] object-cover shadow-2xl border-b-[12px] border-brand-ink"
+                      referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="space-y-10">
