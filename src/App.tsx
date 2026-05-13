@@ -148,10 +148,9 @@ export default function App() {
                   <div className="pt-4">
                     <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
                     <h1 className="serif text-4xl md:text-6xl font-bold leading-tight mb-8 text-slate-900 uppercase tracking-tight">
-                      <span className="text-orange-600 font-extrabold">DOR</span> NA COLUNA, 
-                      <span className="text-orange-600 font-extrabold">DOR</span> NO OMBRO, 
-                      <span className="text-orange-600 font-extrabold">DOR CRÔNICA</span> E 
-                      DOENÇA <span className="text-orange-600 font-extrabold">CRÔNICA</span>, 
+                      <span className="text-orange-600 font-extrabold">DOR</span> NA COLUNA,<br />
+                      <span className="text-orange-600 font-extrabold">DOR</span> NO OMBRO,<br />
+                      <span className="text-orange-600 font-extrabold">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold">CRÔNICA</span>,<br />
                       <span className="text-orange-600 font-extrabold underline decoration-slate-900/20 underline-offset-8">ANSIEDADE E DEPRESSÃO.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
