@@ -143,10 +143,10 @@ export default function App() {
                   <div className="pt-4">
                     <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
                     <h1 className="serif text-4xl md:text-6xl font-bold leading-tight mb-8 text-slate-900 uppercase tracking-tight">
-                      <span className="text-orange-600 font-extrabold">DOR</span> NA COLUNA,<br />
-                      <span className="text-orange-600 font-extrabold">DOR</span> NO OMBRO,<br />
-                      <span className="text-orange-600 font-extrabold">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold">CRÔNICA</span>,<br />
-                      <span className="text-orange-600 font-extrabold underline decoration-slate-900/20 underline-offset-8">ANSIEDADE E DEPRESSÃO.</span>
+                      <span className="text-orange-600 font-extrabold block md:inline">DOR</span> NA COLUNA,<br className="hidden md:block" />
+                      <span className="text-orange-600 font-extrabold block md:inline">DOR</span> NO OMBRO,<br className="hidden md:block" />
+                      <span className="text-orange-600 font-extrabold block md:inline">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold block md:inline">CRÔNICA</span>,<br className="hidden md:block" />
+                      <span className="text-orange-600 font-extrabold block md:inline">ANSIEDADE E DEPRESSÃO.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
                       A dor lombar, a queimação na coluna e a escassez financeira não são castigos — são mensagens. Descubra como silenciar a dor física e emocional que está travando a sua vida e a sua prosperidade.
@@ -221,8 +221,7 @@ export default function App() {
                         >
                           {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : (
                             <>
-                              🚀 QUERO GARANTIR MINHA VAGA E ENTRAR NO GRUPO
-                              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                              GARANTIR MINHA VAGA
                             </>
                           )}
                         </button>
@@ -239,19 +238,19 @@ export default function App() {
               </section>
 
               {/* IDENTIFICAÇÃO */}
-              <section className="py-24 md:py-40 bg-brand-ink text-white">
+              <section className="py-12 md:py-20 bg-brand-ink text-white">
                 <div className="max-w-6xl mx-auto px-6">
-                  <h2 className="serif text-4xl md:text-6xl text-center mb-20">Se você sente que:</h2>
+                  <h2 className="serif text-4xl md:text-6xl text-center mb-12">Se você sente que:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <IdentificationCard text="Convive com dores na lombar, coluna ou joelhos que nunca passam" />
-                    <IdentificationCard text="O ciático ataca e você se sente limitada para viver" />
-                    <IdentificationCard text="Acorda já cansada, como se não tivesse descansado nada" />
-                    <IdentificationCard text="Sua mente não desacelera e a ansiedade te consome" />
-                    <IdentificationCard text="Você tenta organizar a vida… mas o dinheiro nunca sobra" />
-                    <IdentificationCard text="Sente um peso nos ombros que não parece ser seu" />
+                    <IdentificationCard text="Convive com <span class='text-orange-600 font-black'>dores na lombar</span>, coluna ou joelhos que nunca passam" />
+                    <IdentificationCard text="O <span class='text-orange-600 font-black'>ciático</span> ataca e você se sente limitada para viver" />
+                    <IdentificationCard text="Acorda já <span class='text-orange-600 font-black'>cansada</span>, como se não tivesse descansado nada" />
+                    <IdentificationCard text="Sua mente não desacelera e a <span class='text-orange-600 font-black'>ansiedade</span> te consome" />
+                    <IdentificationCard text="Você tenta organizar a vida… mas o <span class='text-orange-600 font-black'>dinheiro</span> nunca sobra" />
+                    <IdentificationCard text="Sente um <span class='text-orange-600 font-black'>peso</span> nos ombros que não parece ser seu" />
                   </div>
                   
-                  <div className="mt-24 text-center">
+                  <div className="mt-16 text-center">
                     <p className="text-2xl md:text-3xl text-white/60 mb-8 font-light italic">
                       "Então provavelmente isso não é falta de esforço."
                     </p>
@@ -263,9 +262,9 @@ export default function App() {
               </section>
 
               {/* OS 5 PILARES */}
-              <section className="py-24 md:py-40 px-6 bg-brand-petroleum-light">
+              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
                 <div className="max-w-5xl mx-auto">
-                  <div className="text-center mb-20">
+                  <div className="text-center mb-12">
                     <h2 className="serif text-3xl md:text-5xl text-brand-ink">A Reorganização dos 5 Pilares</h2>
                     <p className="mt-6 text-xl text-brand-ink/70 font-light max-w-2xl mx-auto">
                       Nesta aula exclusiva, vou abrir a "caixa-preta" do meu método para te mostrar como curar as desordens que afetam sua vida:
@@ -298,18 +297,18 @@ export default function App() {
               </section>
 
               {/* PROMESSA DA AULA */}
-              <section className="py-24 md:py-40 px-6 bg-brand-petroleum-light">
+              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
                 <div className="max-w-4xl mx-auto">
-                  <h2 className="serif text-4xl md:text-5xl mb-20 text-center text-brand-ink">O que você vai aprender:</h2>
-                  <div className="space-y-8 mb-20">
-                    <LargeCheckItem text="Por que seu corpo continua doendo mesmo tentando cuidar" />
-                    <LargeCheckItem text="O que está por trás da sua sobrecarga emocional" />
-                    <LargeCheckItem text="Por que sua vida parece não sair do lugar" />
-                    <LargeCheckItem text="O que está travando sua relação com o dinheiro" />
-                    <LargeCheckItem text="Como começar a reorganizar isso na prática" />
+                  <h2 className="serif text-4xl md:text-5xl mb-12 text-center text-brand-ink">O que você vai aprender:</h2>
+                  <div className="space-y-4 mb-12">
+                    <LargeCheckItem text="Por que seu corpo continua <span class='text-orange-600 font-bold'>doendo</span> mesmo tentando cuidar" />
+                    <LargeCheckItem text="O que está por trás da sua <span class='text-orange-600 font-bold'>sobrecarga emocional</span>" />
+                    <LargeCheckItem text="Por que sua vida parece não <span class='text-orange-600 font-bold'>sair do lugar</span>" />
+                    <LargeCheckItem text="O que está travando sua relação com o <span class='text-orange-600 font-bold'>dinheiro</span>" />
+                    <LargeCheckItem text="Como começar a reorganizar isso na <span class='text-orange-600 font-bold'>prática</span>" />
                   </div>
                   
-                  <div className="bg-white p-12 shadow-2xl border-t-[12px] border-brand-accent text-center">
+                  <div className="bg-white p-8 shadow-2xl border-t-[12px] border-brand-accent text-center">
                     <p className="text-2xl md:text-4xl serif italic text-brand-red font-black leading-tight">
                       "Resultados que podem ser percebidos já no primeiro mês."
                     </p>
@@ -318,9 +317,9 @@ export default function App() {
               </section>
 
               {/* PROVA SOCIAL (VÍDEOS) */}
-              <section className="py-24 md:py-40 px-6 bg-white border-t border-brand-ink/5">
+              <section className="py-12 md:py-20 px-6 bg-white border-t border-brand-ink/5">
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-20">
+                  <div className="text-center mb-12">
                     <h2 className="serif text-4xl md:text-7xl text-brand-ink mb-6">Histórias Reais de Transformação</h2>
                     <p className="text-xl md:text-2xl text-brand-ink/70 font-light">Veja quem já aplicou os 5 pilares e mudou sua realidade</p>
                   </div>
@@ -349,8 +348,8 @@ export default function App() {
               </section>
 
               {/* AUTORIDADE */}
-              <section className="py-24 md:py-40 px-6 bg-brand-petroleum-light">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="relative group">
                     <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img 
@@ -360,12 +359,12 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <div className="space-y-10">
-                    <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight">Com quem você vai aprender?</h3>
+                  <div className="space-y-6">
+                    <h3 className="serif text-5xl md:text-6xl text-brand-ink leading-[1.1]">Com quem você vai aprender?</h3>
                     <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-wider">
                       Roberto Firmino dos Santos
                     </p>
-                    <div className="space-y-8 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
+                    <div className="space-y-6 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
                       <p className="font-bold border-l-4 border-brand-accent pl-6">
                         Você não vai ouvir teorias de quem leu meia dúzia de livros. Será guiada por quem saiu da faxina para mentorar bilionários.
                       </p>
@@ -378,15 +377,15 @@ export default function App() {
               </section>
 
               {/* FINAL CTA */}
-              <section className="py-24 md:py-40 px-6 text-center bg-brand-ink text-white">
+              <section className="py-12 md:py-20 px-6 text-center bg-brand-ink text-white">
                 <div className="max-w-3xl mx-auto">
-                  <h2 className="serif text-4xl md:text-7xl mb-12 text-brand-accent leading-tight">O seu sistema familiar espera por coragem.</h2>
-                  <p className="text-2xl text-white/60 mb-16 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
+                  <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-accent leading-tight">O seu sistema familiar espera por coragem.</h2>
+                  <p className="text-2xl text-white/60 mb-12 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
                   <button 
                     onClick={scrollToForm}
-                    className="bg-brand-accent text-white font-black px-16 py-8 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
+                    className="bg-brand-accent text-white font-black px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
                   >
-                    🚀 QUERO GARANTIR MINHA VAGA
+                    GARANTIR MINHA VAGA
                   </button>
                 </div>
               </section>
@@ -420,10 +419,9 @@ export default function App() {
                   href={WHATSAPP_GROUP_URL}
                   target="_blank"
                   rel="no-referrer"
-                  className="inline-flex items-center justify-center gap-6 bg-[#25D366] text-white font-black px-12 py-8 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-xl uppercase tracking-widest group active:scale-95"
+                  className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-10 py-5 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
                 >
-                  <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                  ✅ ENTRAR NO WHATS OU CONCLUIR INSCRIÇÃO
+                  CONCLUIR INSCRIÇÃO
                 </a>
                 
                 <p className="mt-8 text-sm font-bold text-brand-ink/40 uppercase tracking-widest">
@@ -526,7 +524,10 @@ function DiscoveryItem({ title, text }: { title: string, text: string }) {
 function IdentificationCard({ text }: { text: string }) {
   return (
     <div className="p-10 bg-white/5 border border-white/10 hover:border-brand-accent hover:bg-white/10 transition-all group">
-      <p className="text-xl font-light text-white opacity-80 group-hover:opacity-100 leading-relaxed">{text}</p>
+      <p 
+        className="text-2xl md:text-3xl font-light text-white opacity-80 group-hover:opacity-100 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </div>
   );
 }
@@ -542,9 +543,12 @@ function PillarSquare({ name, number }: { name: string, number: string }) {
 
 function LargeCheckItem({ text }: { text: string }) {
   return (
-    <div className="flex items-start gap-6 py-8 border-b border-brand-ink/10 group hover:bg-brand-white/50 transition-all px-4">
+    <div className="flex items-start gap-6 py-6 border-b border-brand-ink/10 group hover:bg-brand-white/50 transition-all px-4">
       <CheckCircle2 className="w-7 h-7 text-brand-red shrink-0 group-hover:scale-125 transition-transform" />
-      <span className="text-xl md:text-2xl text-brand-ink/80 leading-relaxed">{text}</span>
+      <span 
+        className="text-2xl md:text-3xl text-brand-ink/80 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </div>
   );
 }
