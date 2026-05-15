@@ -142,11 +142,19 @@ export default function App() {
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                   <div className="pt-4">
                     <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
-                    <h1 className="serif text-4xl md:text-6xl font-bold leading-tight mb-8 text-slate-900 uppercase tracking-tight">
-                      <span className="text-orange-600 font-extrabold block md:inline">DOR</span> NA COLUNA,<br className="hidden md:block" />
-                      <span className="text-orange-600 font-extrabold block md:inline">DOR</span> NO OMBRO,<br className="hidden md:block" />
-                      <span className="text-orange-600 font-extrabold block md:inline">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold block md:inline">CRÔNICA</span>,<br className="hidden md:block" />
-                      <span className="text-orange-600 font-extrabold block md:inline">ANSIEDADE E DEPRESSÃO.</span>
+                    <h1 className="serif text-2xl sm:text-3xl md:text-6xl font-bold leading-tight mb-8 text-slate-900 uppercase tracking-tight">
+                      <span className="block mb-1 md:inline md:mb-0">
+                        <span className="text-orange-600 font-extrabold">DOR</span> NA COLUNA,
+                      </span>{" "}
+                      <span className="block mb-1 md:inline md:mb-0">
+                        <span className="text-orange-600 font-extrabold">DOR</span> NO OMBRO,
+                      </span>{" "}
+                      <span className="block mb-1 md:inline md:mb-0">
+                        <span className="text-orange-600 font-extrabold">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold">CRÔNICA</span>,
+                      </span>{" "}
+                      <span className="block md:inline text-orange-600 font-extrabold">
+                        ANSIEDADE E DEPRESSÃO.
+                      </span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
                       A dor lombar, a queimação na coluna e a escassez financeira não são castigos — são mensagens. Descubra como silenciar a dor física e emocional que está travando a sua vida e a sua prosperidade.
@@ -531,7 +539,7 @@ function IdentificationCard({ text }: { text: string }) {
   return (
     <div className="p-10 bg-white/5 border border-white/10 hover:border-brand-accent hover:bg-white/10 transition-all group">
       <p 
-        className="text-2xl md:text-3xl font-light text-white opacity-80 group-hover:opacity-100 leading-relaxed"
+        className="text-xl md:text-3xl font-light text-white opacity-80 group-hover:opacity-100 leading-relaxed"
         dangerouslySetInnerHTML={{ __html: text }}
       />
     </div>
@@ -552,7 +560,7 @@ function LargeCheckItem({ text }: { text: string }) {
     <div className="flex items-start gap-6 py-6 border-b border-brand-ink/10 group hover:bg-brand-white/50 transition-all px-4">
       <CheckCircle2 className="w-7 h-7 text-brand-red shrink-0 group-hover:scale-125 transition-transform" />
       <span 
-        className="text-2xl md:text-3xl text-brand-ink/80 leading-relaxed"
+        className="text-xl md:text-3xl text-brand-ink/80 leading-relaxed"
         dangerouslySetInnerHTML={{ __html: text }}
       />
     </div>
