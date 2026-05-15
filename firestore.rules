@@ -26,11 +26,12 @@ service cloud.firestore {
 
     // Validation for Inscrição
     function isValidInscricao(data) {
-      return data.keys().hasAll(['nome', 'email', 'whatsapp', 'createdAt'])
-        && data.keys().size() == 4
+      return data.keys().hasAll(['nome', 'email', 'whatsapp', 'createdAt', 'source'])
+        && data.keys().size() == 5
         && data.nome is string && data.nome.size() >= 2 && data.nome.size() <= 100
         && data.email is string && data.email.size() <= 100 && data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
-        && data.whatsapp is string && data.whatsapp.size() >= 10 && data.whatsapp.size() <= 20
+        && data.whatsapp is string && data.whatsapp.size() >= 10 && data.whatsapp.size() <= 25
+        && data.source is string && data.source.size() <= 100
         && data.createdAt == request.time;
     }
 

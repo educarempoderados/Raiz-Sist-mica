@@ -22,9 +22,13 @@
           "type": "string",
           "format": "date-time",
           "description": "Data e hora da inscrição"
+        },
+        "source": {
+          "type": "string",
+          "description": "Origem da inscrição"
         }
       },
-      "required": ["nome", "email", "whatsapp", "createdAt"]
+      "required": ["nome", "email", "whatsapp", "createdAt", "source"]
     }
   },
   "firestore": {

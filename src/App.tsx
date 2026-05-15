@@ -93,19 +93,14 @@ export default function App() {
     setIsSubmitting(true);
     setError(null);
     try {
-      const q = query(collection(db, 'inscricoes'), where("email", "==", data.email));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        setIsAlreadyRegistered(true);
-      } else {
-        await addDoc(collection(db, 'inscricoes'), {
-          ...data,
-          createdAt: serverTimestamp(),
-          source: 'A Raiz Sistêmica'
-        });
-        setIsAlreadyRegistered(false);
-      }
+      // Simplificado: removemos a verificação de duplicidade para garantir o fluxo
+      // e evitar problemas de permissão de leitura não autorizada
+      await addDoc(collection(db, 'inscricoes'), {
+        ...data,
+        createdAt: serverTimestamp(),
+        source: 'A Raiz Sistêmica'
+      });
+      setIsAlreadyRegistered(false);
 
       localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify(data));
       setSavedData(data);
@@ -428,7 +423,7 @@ export default function App() {
                   className="inline-flex items-center justify-center gap-6 bg-[#25D366] text-white font-black px-12 py-8 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-xl uppercase tracking-widest group active:scale-95"
                 >
                   <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                  ✅ CLIQUE AQUI PARA ENTRAR NO GRUPO VIP AGORA
+                  ✅ ENTRAR NO WHATS OU CONCLUIR INSCRIÇÃO
                 </a>
                 
                 <p className="mt-8 text-sm font-bold text-brand-ink/40 uppercase tracking-widest">
