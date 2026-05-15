@@ -366,10 +366,16 @@ export default function App() {
                     </p>
                     <div className="space-y-6 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
                       <p className="font-bold border-l-4 border-brand-accent pl-6">
-                        Você não vai ouvir teorias de quem leu meia dúzia de livros. Será guiada por quem saiu da faxina para mentorar bilionários.
+                        Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-orange-600 font-extrabold">dor</span>, a <span className="text-orange-600 font-extrabold">escassez</span> e o <span className="text-orange-600 font-extrabold">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
                       </p>
                       <p>
-                        São 30 anos de prática clínica unindo Constelação, Cinesiologia Aplicada e Gestão real. Ele entende a dor física porque curou centenas, e entende de dinheiro porque viveu a transformação na pele.
+                        Hoje, como <span className="text-orange-600 font-black">Especialista Sistêmico em Dor, Doenças Crônicas e Questões Financeiras</span>, uno mais de 30 anos de experiência clínica com Constelação Familiar, Cinesiologia Aplicada e gestão prática de vida e negócios.
+                      </p>
+                      <p>
+                        Ajudo principalmente <span className="text-orange-600 font-bold">mulheres 30+</span> a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e <span className="text-orange-600 font-bold">reorganizando sua relação com o dinheiro</span> — com <span className="text-orange-600 font-extrabold">resultados percebidos já no primeiro mês</span>.
+                      </p>
+                      <p>
+                        Entendo a dor física porque acompanhei e transformei a vida de centenas de pessoas. E entendo os desafios financeiros porque também vivi minha própria transformação. Meu trabalho é mostrar que, quando o sistema familiar se reorganiza, a saúde, os relacionamentos e a prosperidade começam a encontrar o lugar certo.
                       </p>
                     </div>
                   </div>
