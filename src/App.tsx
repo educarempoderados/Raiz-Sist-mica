@@ -15,7 +15,8 @@ import {
   AlertCircle,
   ShieldCheck,
   BellRing,
-  UserCheck
+  UserCheck,
+  Share2
 } from 'lucide-react';
 import robertoImg from './roberto.jpeg';
 import { clsx, type ClassValue } from 'clsx';
@@ -52,6 +53,8 @@ export default function App() {
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [savedData, setSavedData] = useState<RegistrationData | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const [activeModal, setActiveModal] = useState<'terms' | 'privacy' | null>(null);
 
   const {
     register,
@@ -136,24 +139,24 @@ export default function App() {
               transition={{ duration: 0.5 }}
             >
               {/* HERO SECTION */}
-              <section className="relative pt-12 md:pt-24 pb-20 px-6">
+              <section className="relative pt-8 md:pt-16 pb-12 px-6">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 -z-10 blur-3xl rounded-full translate-x-1/2" />
                 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className="pt-4">
                     <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
-                    <h1 className="serif text-2xl sm:text-3xl md:text-6xl font-bold leading-tight mb-8 text-slate-900 uppercase tracking-tight">
-                      <span className="block mb-1 md:inline md:mb-0">
-                        <span className="text-orange-600 font-extrabold">DOR</span> NA COLUNA,
+                    <h1 className="serif text-3xl sm:text-4xl md:text-6xl font-black leading-tight mb-8 text-brand-ink uppercase tracking-tight">
+                      <span className="block mb-2 md:inline md:mb-0">
+                        DOR NA <span className="text-[#FF4D00]">COLUNA,</span>
                       </span>{" "}
-                      <span className="block mb-1 md:inline md:mb-0">
-                        <span className="text-orange-600 font-extrabold">DOR</span> NO OMBRO,
+                      <span className="block mb-2 md:inline md:mb-0">
+                        DOR NO <span className="text-[#FF4D00]">OMBRO,</span>
                       </span>{" "}
-                      <span className="block mb-1 md:inline md:mb-0">
-                        <span className="text-orange-600 font-extrabold">DOR CRÔNICA</span> E DOENÇA <span className="text-orange-600 font-extrabold">CRÔNICA</span>,
+                      <span className="block mb-2 md:inline md:mb-0">
+                        DOR <span className="text-[#FF4D00]">CRÔNICA</span> E DOENÇA <span className="text-[#FF4D00]">CRÔNICA</span>,
                       </span>{" "}
-                      <span className="block md:inline text-orange-600 font-extrabold">
-                        ANSIEDADE E DEPRESSÃO.
+                      <span className="block md:inline">
+                        <span className="text-[#FF4D00]">ANSIEDADE</span> E <span className="text-[#FF4D00]">DEPRESSÃO.</span>
                       </span>
                     </h1>
                     <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
@@ -225,7 +228,7 @@ export default function App() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-brand-accent text-white font-black py-6 mt-8 rounded-none hover:bg-brand-white hover:text-brand-ink transition-all flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest group shadow-xl active:scale-95"
+                          className="w-full bg-brand-accent text-white font-black py-4 mt-8 rounded-none hover:bg-brand-white hover:text-brand-ink transition-all flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest group shadow-xl active:scale-95"
                         >
                           {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : (
                             <>
@@ -233,6 +236,10 @@ export default function App() {
                             </>
                           )}
                         </button>
+
+                        <p className="text-[10px] text-white/40 text-center leading-relaxed font-medium uppercase tracking-tight">
+                          Seus dados estão seguros conosco. Ao se inscrever, você concorda que poderemos processar suas informações para fins de acesso à aula e comunicações relacionadas de acordo com a nossa <button type="button" onClick={() => setActiveModal('privacy')} className="underline hover:text-brand-accent transition-colors">Política de Privacidade</button>.
+                        </p>
 
                         {error && (
                           <div className="p-4 bg-brand-red/20 text-brand-red text-xs font-bold uppercase text-center">
@@ -246,16 +253,16 @@ export default function App() {
               </section>
 
               {/* IDENTIFICAÇÃO */}
-              <section className="py-12 md:py-20 bg-brand-ink text-white">
+              <section className="py-8 md:py-12 bg-brand-ink text-white">
                 <div className="max-w-6xl mx-auto px-6">
                   <h2 className="serif text-4xl md:text-6xl text-center mb-12">Se você sente que:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <IdentificationCard text="Convive com <span class='text-orange-600 font-black'>dores na lombar</span>, coluna ou joelhos que nunca passam" />
-                    <IdentificationCard text="O <span class='text-orange-600 font-black'>ciático</span> ataca e você se sente limitada para viver" />
-                    <IdentificationCard text="Acorda já <span class='text-orange-600 font-black'>cansada</span>, como se não tivesse descansado nada" />
-                    <IdentificationCard text="Sua mente não desacelera e a <span class='text-orange-600 font-black'>ansiedade</span> te consome" />
-                    <IdentificationCard text="Você tenta organizar a vida… mas o <span class='text-orange-600 font-black'>dinheiro</span> nunca sobra" />
-                    <IdentificationCard text="Sente um <span class='text-orange-600 font-black'>peso</span> nos ombros que não parece ser seu" />
+                    <IdentificationCard text="Convive com <span class='text-[#FF4D00] font-black'>dores na lombar</span>, coluna ou joelhos que nunca passam" />
+                    <IdentificationCard text="O <span class='text-[#FF4D00] font-black'>ciático</span> ataca e você se sente limitada para viver" />
+                    <IdentificationCard text="Acorda já <span class='text-[#FF4D00] font-black'>cansada</span>, como se não tivesse descansado nada" />
+                    <IdentificationCard text="Sua mente não desacelera e a <span class='text-[#FF4D00] font-black'>ansiedade</span> te consome" />
+                    <IdentificationCard text="Você tenta organizar a vida… mas o <span class='text-[#FF4D00] font-black'>dinheiro</span> nunca sobra" />
+                    <IdentificationCard text="Sente um <span class='text-[#FF4D00] font-black'>peso</span> nos ombros que não parece ser seu" />
                   </div>
                   
                   <div className="mt-16 text-center">
@@ -270,7 +277,7 @@ export default function App() {
               </section>
 
               {/* OS 5 PILARES */}
-              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
+              <section className="py-8 md:py-12 px-6 bg-brand-petroleum-light">
                 <div className="max-w-5xl mx-auto">
                   <div className="text-center mb-12">
                     <h2 className="serif text-3xl md:text-5xl text-brand-ink">A Reorganização dos 5 Pilares</h2>
@@ -305,15 +312,15 @@ export default function App() {
               </section>
 
               {/* PROMESSA DA AULA */}
-              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
+              <section className="py-8 md:py-12 px-6 bg-brand-petroleum-light">
                 <div className="max-w-4xl mx-auto">
                   <h2 className="serif text-4xl md:text-5xl mb-12 text-center text-brand-ink">O que você vai aprender:</h2>
                   <div className="space-y-4 mb-12">
-                    <LargeCheckItem text="Por que seu corpo continua <span class='text-orange-600 font-bold'>doendo</span> mesmo tentando cuidar" />
-                    <LargeCheckItem text="O que está por trás da sua <span class='text-orange-600 font-bold'>sobrecarga emocional</span>" />
-                    <LargeCheckItem text="Por que sua vida parece não <span class='text-orange-600 font-bold'>sair do lugar</span>" />
-                    <LargeCheckItem text="O que está travando sua relação com o <span class='text-orange-600 font-bold'>dinheiro</span>" />
-                    <LargeCheckItem text="Como começar a reorganizar isso na <span class='text-orange-600 font-bold'>prática</span>" />
+                    <LargeCheckItem text="Por que seu corpo continua <span class='text-[#FF4D00] font-bold'>doendo</span> mesmo tentando cuidar" />
+                    <LargeCheckItem text="O que está por trás da sua <span class='text-[#FF4D00] font-bold'>sobrecarga emocional</span>" />
+                    <LargeCheckItem text="Por que sua vida parece não <span class='text-[#FF4D00] font-bold'>sair do lugar</span>" />
+                    <LargeCheckItem text="O que está travando sua relação com o <span class='text-[#FF4D00] font-bold'>dinheiro</span>" />
+                    <LargeCheckItem text="Como começar a reorganizar isso na <span class='text-[#FF4D00] font-bold'>prática</span>" />
                   </div>
                   
                   <div className="bg-white p-8 shadow-2xl border-t-[12px] border-brand-accent text-center">
@@ -325,38 +332,88 @@ export default function App() {
               </section>
 
               {/* PROVA SOCIAL (VÍDEOS) */}
-              <section className="py-12 md:py-20 px-6 bg-white border-t border-brand-ink/5">
+              <section className="py-8 md:py-12 px-6 bg-white border-t border-brand-ink/5">
                 <div className="max-w-6xl mx-auto">
                   <div className="text-center mb-12">
                     <h2 className="serif text-4xl md:text-7xl text-brand-ink mb-6">Histórias Reais de Transformação</h2>
                     <p className="text-xl md:text-2xl text-brand-ink/70 font-light">Veja quem já aplicou os 5 pilares e mudou sua realidade</p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
-                      <iframe 
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Depoimento 1"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowFullScreen
-                      ></iframe>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-12">
+                    <div className="space-y-4">
+                      <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                        <iframe 
+                          className="w-full h-full"
+                          src="https://www.youtube.com/embed/1ymp-j2fid0" 
+                          title="Depoimento 1"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <button 
+                        onClick={() => alert('Link de compartilhamento copiado!')}
+                        className="flex items-center gap-2 text-brand-ink/40 hover:text-brand-accent transition-colors font-bold text-xs uppercase tracking-widest"
+                      >
+                        <Share2 className="w-4 h-4" /> Compartilhar história
+                      </button>
                     </div>
-                    <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
-                      <iframe 
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Depoimento 2"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowFullScreen
-                      ></iframe>
+                    <div className="space-y-4">
+                      <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                        <iframe 
+                          className="w-full h-full"
+                          src="https://www.youtube.com/embed/-XU7w7skxl0" 
+                          title="Depoimento 2"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <button 
+                        onClick={() => alert('Link de compartilhamento copiado!')}
+                        className="flex items-center gap-2 text-brand-ink/40 hover:text-brand-accent transition-colors font-bold text-xs uppercase tracking-widest"
+                      >
+                        <Share2 className="w-4 h-4" /> Compartilhar história
+                      </button>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                        <iframe 
+                          className="w-full h-full"
+                          src="https://www.youtube.com/embed/RKLJbhCUsNw" 
+                          title="Depoimento 3"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <button 
+                        onClick={() => alert('Link de compartilhamento copiado!')}
+                        className="flex items-center gap-2 text-brand-ink/40 hover:text-brand-accent transition-colors font-bold text-xs uppercase tracking-widest"
+                      >
+                        <Share2 className="w-4 h-4" /> Compartilhar história
+                      </button>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="aspect-video bg-brand-ink shadow-2xl border-4 border-brand-accent/20">
+                        <iframe 
+                          className="w-full h-full"
+                          src="https://www.youtube.com/embed/nTr4kbkg_dY" 
+                          title="Depoimento 4"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <button 
+                        onClick={() => alert('Link de compartilhamento copiado!')}
+                        className="flex items-center gap-2 text-brand-ink/40 hover:text-brand-accent transition-colors font-bold text-xs uppercase tracking-widest"
+                      >
+                        <Share2 className="w-4 h-4" /> Compartilhar história
+                      </button>
                     </div>
                   </div>
                 </div>
               </section>
 
               {/* AUTORIDADE */}
-              <section className="py-12 md:py-20 px-6 bg-brand-petroleum-light">
+              <section className="py-8 md:py-12 px-6 bg-brand-petroleum-light">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="relative group">
                     <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -368,19 +425,19 @@ export default function App() {
                     />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="serif text-5xl md:text-6xl text-brand-ink leading-[1.1]">Com quem você vai aprender?</h3>
+                    <h3 className="serif text-5xl md:text-6xl text-brand-ink leading-[1] md:leading-[1]">Com quem você vai aprender?</h3>
                     <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-wider">
                       Roberto Firmino dos Santos
                     </p>
                     <div className="space-y-6 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
                       <p className="font-bold border-l-4 border-brand-accent pl-6">
-                        Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-orange-600 font-extrabold">dor</span>, a <span className="text-orange-600 font-extrabold">escassez</span> e o <span className="text-orange-600 font-extrabold">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
+                        Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-[#FF4D00] font-extrabold">dor</span>, a <span className="text-[#FF4D00] font-extrabold">escassez</span> e o <span className="text-[#FF4D00] font-extrabold">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
                       </p>
                       <p>
-                        Hoje, como <span className="text-orange-600 font-black">Especialista Sistêmico em Dor, Doenças Crônicas e Questões Financeiras</span>, uno mais de 30 anos de experiência clínica com Constelação Familiar, Cinesiologia Aplicada e gestão prática de vida e negócios.
+                        Hoje, como <span className="text-[#FF4D00] font-black">Especialista Sistêmico em Dor, Doenças Crônicas e Questões Financeiras</span>, uno mais de 30 anos de experiência clínica com Constelação Familiar, Cinesiologia Aplicada e gestão prática de vida e negócios.
                       </p>
                       <p>
-                        Ajudo principalmente <span className="text-orange-600 font-bold">mulheres 30+</span> a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e <span className="text-orange-600 font-bold">reorganizando sua relação com o dinheiro</span> — com <span className="text-orange-600 font-extrabold">resultados percebidos já no primeiro mês</span>.
+                        Ajudo principalmente <span className="text-[#FF4D00] font-bold">mulheres 30+</span> a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e <span className="text-[#FF4D00] font-bold">reorganizando sua relação com o dinheiro</span> — com <span className="text-[#FF4D00] font-extrabold">resultados percebidos já no primeiro mês</span>.
                       </p>
                       <p>
                         Entendo a dor física porque acompanhei e transformei a vida de centenas de pessoas. E entendo os desafios financeiros porque também vivi minha própria transformação. Meu trabalho é mostrar que, quando o sistema familiar se reorganiza, a saúde, os relacionamentos e a prosperidade começam a encontrar o lugar certo.
@@ -391,16 +448,16 @@ export default function App() {
               </section>
 
               {/* FINAL CTA */}
-              <section className="py-12 md:py-20 px-6 text-center bg-brand-ink text-white">
+              <section className="py-8 md:py-12 px-6 text-center bg-brand-ink text-white">
                 <div className="max-w-3xl mx-auto">
                   <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-accent leading-tight">O seu sistema familiar espera por coragem.</h2>
                   <p className="text-2xl text-white/60 mb-12 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
-                  <button 
-                    onClick={scrollToForm}
-                    className="bg-brand-accent text-white font-black px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
-                  >
-                    GARANTIR MINHA VAGA
-                  </button>
+                <button 
+                  onClick={scrollToForm}
+                  className="bg-brand-accent text-white font-black px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
+                >
+                  GARANTIR MINHA VAGA
+                </button>
                 </div>
               </section>
             </motion.div>
@@ -429,11 +486,11 @@ export default function App() {
                   </p>
                 </div>
 
-                <a
+                  <a
                   href={WHATSAPP_GROUP_URL}
                   target="_blank"
                   rel="no-referrer"
-                  className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-10 py-5 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
+                  className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-6 py-2 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
                 >
                   CONCLUIR INSCRIÇÃO
                 </a>
@@ -507,12 +564,108 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-30">
             <p>© 2026 • Os 5 Pilares da Vida Saudável</p>
             <div className="flex gap-10">
-              <span className="hover:text-brand-accent cursor-pointer transition-colors">Termos de Uso</span>
-              <span className="hover:text-brand-accent cursor-pointer transition-colors">Privacidade</span>
+              <button 
+                onClick={() => setActiveModal('terms')}
+                className="hover:text-brand-accent cursor-pointer transition-colors uppercase"
+              >
+                Termos de Uso
+              </button>
+              <button 
+                onClick={() => setActiveModal('privacy')}
+                className="hover:text-brand-accent cursor-pointer transition-colors uppercase"
+              >
+                Privacidade
+              </button>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Legal Modals */}
+      <AnimatePresence>
+        {activeModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-brand-ink/95 backdrop-blur-sm"
+            onClick={() => setActiveModal(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              className="bg-white text-brand-ink w-full max-w-2xl max-h-[80vh] overflow-y-auto p-8 md:p-12 relative shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setActiveModal(null)}
+                className="absolute top-6 right-6 text-brand-ink/40 hover:text-brand-red transition-colors"
+              >
+                <AlertCircle className="w-8 h-8 rotate-45" />
+              </button>
+
+              {activeModal === 'privacy' ? (
+                <div className="prose prose-sm font-sans">
+                  <h3 className="serif text-2xl mb-8 uppercase tracking-widest border-b border-brand-ink/10 pb-4">Política de Privacidade</h3>
+                  <div className="space-y-6 text-sm text-brand-ink/70 leading-relaxed font-medium">
+                    <p>Seus dados são tratados com o máximo rigor e segurança, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+                    
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">1. Coleta de Dados</h4>
+                      <p>Coletamos seu nome, e-mail e número de WhatsApp exclusivamente para garantir seu acesso ao evento "Os 5 Pilares da Vida Saudável" e para enviar comunicações relevantes sobre o método sistêmico.</p>
+                    </section>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">2. Finalidade</h4>
+                      <p>O tratamento dos dados visa: a) Enviar o link de acesso às aulas; b) Enviar materiais complementares; c) Informar sobre futuros treinamentos e mentorias de Roberto Firmino dos Santos.</p>
+                    </section>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">3. Seus Direitos</h4>
+                      <p>Você tem total direito de solicitar a exclusão de seus dados, retificação ou revogação do consentimento a qualquer momento. Basta entrar em contato através do e-mail: robertofirmino.suporte@gmail.com.</p>
+                    </section>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">4. Segurança</h4>
+                      <p>Utilizamos tecnologias de mercado para proteger suas informações contra acessos não autorizados. Seus dados nunca serão vendidos ou compartilhados com terceiros para fins comerciais alheios a este programa.</p>
+                    </section>
+                  </div>
+                </div>
+              ) : (
+                <div className="prose prose-sm font-sans">
+                  <h3 className="serif text-2xl mb-8 uppercase tracking-widest border-b border-brand-ink/10 pb-4">Termos de Uso</h3>
+                  <div className="space-y-6 text-sm text-brand-ink/70 leading-relaxed font-medium">
+                    <p>Ao acessar este site e se inscrever em nossa aula gratuita, você concorda em cumprir estes termos.</p>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">1. Isenção de Responsabilidade</h4>
+                      <p>O conteúdo apresentado nesta aula tem caráter informativo e educacional sobre visão sistêmica e autocuidado. Não substitui tratamentos médicos, psicológicos ou psiquiátricos. Resultados individuais podem variar de acordo com a aplicação prática do método.</p>
+                    </section>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">2. Propriedade Intelectual</h4>
+                      <p>Todo o conteúdo, logotipos e materiais didáticos são de propriedade exclusiva de Roberto Firmino dos Santos. É proibida a reprodução, cópia ou distribuição não autorizada deste material para fins comerciais.</p>
+                    </section>
+
+                    <section>
+                      <h4 className="text-brand-ink font-black uppercase text-xs mb-2">3. Uso de Conteúdo</h4>
+                      <p>O link de acesso à aula é pessoal e intransferível, destinado apenas aos usuários cadastrados em nossa base oficial.</p>
+                    </section>
+                  </div>
+                </div>
+              )}
+
+              <button 
+                onClick={() => setActiveModal(null)}
+                className="mt-12 w-full bg-brand-ink text-white py-4 font-black uppercase tracking-widest hover:bg-brand-accent transition-all"
+              >
+                Entendi e Aceito
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
