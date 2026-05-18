@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import Admin from './Admin.tsx';
 import PoliticaPrivacidade from './PoliticaPrivacidade.tsx';
+import Obrigado from './Obrigado.tsx';
 import './index.css';
 
 function MainRouter() {
@@ -28,6 +29,10 @@ function MainRouter() {
 
   if (pathname === '/politica-de-privacidade' || pathname === '/politica-de-privacidade/') {
     return <PoliticaPrivacidade />;
+  }
+
+  if (pathname === '/obrigado' || pathname === '/obrigado/') {
+    return <Obrigado />;
   }
 
   if (hash === '#admin') {

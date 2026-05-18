@@ -48,10 +48,7 @@ const registrationSchema = z.object({
 type RegistrationData = z.infer<typeof registrationSchema>;
 
 export default function App() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
-  const [savedData, setSavedData] = useState<RegistrationData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const [activeModal, setActiveModal] = useState<'terms' | 'privacy' | null>(null);
@@ -71,14 +68,7 @@ export default function App() {
   useEffect(() => {
     const data = localStorage.getItem('inscricao_pilares_saudaveis');
     if (data) {
-      try {
-        const parsed = JSON.parse(data);
-        setSavedData(parsed);
-        setIsSubmitted(true);
-        setIsAlreadyRegistered(true);
-      } catch (e) {
-        localStorage.removeItem('inscricao_pilares_saudaveis');
-      }
+      window.location.href = '/obrigado';
     }
   }, []);
 
@@ -103,12 +93,9 @@ export default function App() {
         createdAt: serverTimestamp(),
         source: 'A Raiz Sistêmica'
       });
-      setIsAlreadyRegistered(false);
 
       localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify(data));
-      setSavedData(data);
-      setIsSubmitted(true);
-      window.scrollTo(0, 0);
+      window.location.href = '/obrigado';
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, 'inscricoes');
       setError("Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente.");
@@ -130,7 +117,6 @@ export default function App() {
 
       <main className="relative z-10 w-full overflow-hidden">
         <AnimatePresence mode="wait">
-          {!isSubmitted ? (
             <motion.div
               key="landing"
               initial={{ opacity: 0 }}
@@ -461,86 +447,6 @@ export default function App() {
                 </div>
               </section>
             </motion.div>
-          ) : (
-            <motion.div
-              key="confirmation"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="py-12 md:py-20 px-6 max-w-6xl mx-auto"
-            >
-              <div className="text-center mb-20">
-                {isAlreadyRegistered && (
-                  <div className="mb-8 bg-brand-petroleum-light py-4 px-8 border-l-4 border-brand-accent inline-flex items-center gap-4 text-brand-petroleum">
-                    <UserCheck className="w-6 h-6" />
-                    <span className="text-base font-black uppercase tracking-widest">Você já está inscrita no sistema!</span>
-                  </div>
-                )}
-                
-                <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-red leading-tight font-black uppercase">
-                  🚨 FALTA SÓ MAIS UM PASSO PARA CONFIRMAR SUA INSCRIÇÃO!
-                </h2>
-                
-                <div className="max-w-3xl mx-auto p-10 bg-brand-petroleum-light shadow-sm mb-12">
-                  <p className="text-xl md:text-2xl leading-relaxed text-brand-ink font-light">
-                    O seu cadastro está quase pronto, mas o link da aula <strong className="text-brand-red">não será enviado por e-mail</strong>. Para evitar que você perca essa oportunidade, o acesso será liberado APENAS dentro do Grupo VIP do WhatsApp.
-                  </p>
-                </div>
-
-                  <a
-                  href={WHATSAPP_GROUP_URL}
-                  target="_blank"
-                  rel="no-referrer"
-                  className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-6 py-2 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
-                >
-                  CONCLUIR INSCRIÇÃO
-                </a>
-                
-                <p className="mt-8 text-sm font-bold text-brand-ink/40 uppercase tracking-widest">
-                  Fique tranquila: o grupo é silenciado e só nossa equipe enviará os avisos importantes.
-                </p>
-              </div>
-
-              {/* AQUECIMENTO / SEÇÃO DE VENDA DA AULA */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-brand-ink/10 pt-20 items-start">
-                <div className="space-y-10">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">Enquanto o dia 21/05 não chega...</span>
-                    <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight">Conheça a base do Programa: A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR</h3>
-                  </div>
-                  <div className="space-y-6 text-lg md:text-xl text-brand-ink font-light leading-relaxed">
-                    <p>
-                      Muitas pessoas tentam trabalhar mais ou trocar de emprego para ganhar dinheiro. Outras tomam remédios fortes tentando calar a dor no corpo.
-                    </p>
-                    <p className="font-bold text-brand-red italic">
-                      O que elas não sabem é que o prejuízo financeiro e a dor crônica vêm do mesmo bloqueio inconsciente.
-                    </p>
-                    <p>
-                      Não é falta de sorte. Não é misticismo. É ciência sistêmica. Na nossa aula ao vivo, você vai entender a essência do método que está limpando memórias de luto, falências e segredos.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-brand-ink text-white p-10 md:p-16 shadow-2xl relative border-l-8 border-brand-accent">
-                  <h4 className="serif text-3xl text-brand-accent uppercase tracking-widest mb-12">O que você vai descobrir com esse método:</h4>
-                  
-                  <div className="space-y-10">
-                    <DiscoveryItem 
-                      title="A Transição de Postura" 
-                      text="Como sair da postura infantil e vitimista perante a vida e assumir a posição de adulto, o único capaz de gerar verdadeira abundância." 
-                    />
-                    <DiscoveryItem 
-                      title="O Sintoma é um Mensageiro" 
-                      text="A doença não é o problema, mas a tentativa do seu corpo de alertar que a estrutura familiar está fora de ordem." 
-                    />
-                    <DiscoveryItem 
-                      title="Destravando a Prosperidade" 
-                      text="Como limpar as memórias de luto, falências e dores do passado para não precisar repetir os fracassos dos seus antepassados por 'lealdade invisível'." 
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
         </AnimatePresence>
       </main>
 
