@@ -2,18 +2,35 @@ import {StrictMode, useState, useEffect} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import Admin from './Admin.tsx';
+import PoliticaPrivacidade from './PoliticaPrivacidade.tsx';
 import './index.css';
 
 function MainRouter() {
-  const [route, setRoute] = useState(window.location.hash);
+  const [hash, setHash] = useState(window.location.hash);
+  const [pathname, setPathname] = useState(window.location.pathname);
 
   useEffect(() => {
-    const onHashChange = () => setRoute(window.location.hash);
+    const onHashChange = () => setHash(window.location.hash);
     window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
+    
+    // For local handling of pushState (if any)
+    const originalPushState = history.pushState;
+    history.pushState = function (...args) {
+      originalPushState.apply(this, args);
+      setPathname(window.location.pathname);
+    };
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+      history.pushState = originalPushState;
+    };
   }, []);
 
-  if (route === '#admin') {
+  if (pathname === '/politica-de-privacidade' || pathname === '/politica-de-privacidade/') {
+    return <PoliticaPrivacidade />;
+  }
+
+  if (hash === '#admin') {
     return <Admin />;
   }
 

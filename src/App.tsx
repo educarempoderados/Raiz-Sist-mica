@@ -570,12 +570,12 @@ export default function App() {
               >
                 Termos de Uso
               </button>
-              <button 
-                onClick={() => setActiveModal('privacy')}
+              <a 
+                href="/politica-de-privacidade"
                 className="hover:text-brand-accent cursor-pointer transition-colors uppercase"
               >
                 Privacidade
-              </button>
+              </a>
             </div>
           </div>
         </div>
