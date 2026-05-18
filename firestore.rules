@@ -37,8 +37,8 @@ service cloud.firestore {
 
     match /inscricoes/{id} {
       allow create: if isValidId(id) && isValidInscricao(incoming());
-      allow get, list: if isAdmin();
-      allow update, delete: if isAdmin();
+      allow get, list: if isSignedIn();
+      allow update, delete: if isSignedIn();
     }
 
     match /admins/{userId} {
