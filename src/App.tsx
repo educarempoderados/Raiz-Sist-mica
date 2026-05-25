@@ -112,7 +112,7 @@ export default function App() {
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       {/* Top Bar */}
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         🗓 Aula Ao Vivo e Gratuita | Data: 21/05/2026 | Horário: 20h
+         🗓 MasterClass Gratuita em Breve
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -456,7 +456,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start mb-20 border-b border-white/10 pb-20">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Data Reservada</p>
-              <p className="serif text-3xl">21 de Maio às 20h</p>
+              <p className="serif text-3xl">Em Breve</p>
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Transmissão</p>
