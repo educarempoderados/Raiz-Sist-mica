@@ -8,7 +8,7 @@ function DiscoveryItem({ title, text }: { title: string, text: string }) {
   return (
     <div className="space-y-2">
       <h5 className="text-lg font-black uppercase tracking-widest text-brand-accent">/ {title}</h5>
-      <p className="text-lg text-white/70 leading-relaxed font-light">{text}</p>
+      <p className="text-lg text-white/90 leading-relaxed font-light">{text}</p>
     </div>
   );
 }
@@ -123,10 +123,10 @@ export default function Obrigado() {
             </div>
             <div className="text-left md:text-right">
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Suporte</p>
-              <p className="text-lg opacity-60">robertofirmino.suporte@gmail.com</p>
+              <p className="text-lg md:text-base lg:text-lg opacity-90">equipe.hdsf@robertofirminodossantos.com.br</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-30">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-70">
             <p>© 2026 • Os 5 Pilares da Vida Saudável</p>
             <div className="flex gap-10">
               <button 
@@ -172,7 +172,7 @@ export default function Obrigado() {
               {activeModal === 'terms' && (
                 <div className="prose prose-sm font-sans">
                   <h3 className="serif text-2xl mb-8 uppercase tracking-widest border-b border-brand-ink/10 pb-4">Termos de Uso</h3>
-                  <div className="space-y-6 text-sm text-brand-ink/70 leading-relaxed font-medium">
+                  <div className="space-y-6 text-sm text-brand-ink/90 leading-relaxed font-medium">
                     <p>Ao acessar este site e se inscrever em nossa aula gratuita, você concorda em cumprir estes termos.</p>
 
                     <section>

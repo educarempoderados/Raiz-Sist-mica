@@ -223,7 +223,7 @@ export default function App() {
                           )}
                         </button>
 
-                        <p className="text-[10px] text-white/80 text-center leading-relaxed font-medium uppercase tracking-tight">
+                        <p className="text-xs text-white/90 text-center leading-relaxed font-medium uppercase tracking-tight">
                           Seus dados estão seguros conosco. Ao se inscrever, você concorda que poderemos processar suas informações para fins de acesso à aula e comunicações relacionadas de acordo com a nossa <button type="button" onClick={() => setActiveModal('privacy')} className="underline hover:text-brand-accent transition-colors">Política de Privacidade</button>.
                         </p>
 
@@ -241,23 +241,31 @@ export default function App() {
               {/* IDENTIFICAÇÃO */}
               <section className="py-8 md:py-12 bg-brand-ink text-white">
                 <div className="max-w-6xl mx-auto px-6">
-                  <h2 className="serif text-4xl md:text-6xl text-center mb-12">Se você sente que:</h2>
+                  <h2 className="serif text-4xl md:text-6xl text-center mb-12">Se você convive com:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <IdentificationCard text="Convive com <span class='text-[#FF4D00] font-black'>dores na lombar</span>, coluna ou joelhos que nunca passam" />
-                    <IdentificationCard text="O <span class='text-[#FF4D00] font-black'>ciático</span> ataca e você se sente limitada para viver" />
-                    <IdentificationCard text="Acorda já <span class='text-[#FF4D00] font-black'>cansada</span>, como se não tivesse descansado nada" />
-                    <IdentificationCard text="Sua mente não desacelera e a <span class='text-[#FF4D00] font-black'>ansiedade</span> te consome" />
-                    <IdentificationCard text="Você tenta organizar a vida… mas o <span class='text-[#FF4D00] font-black'>dinheiro</span> nunca sobra" />
-                    <IdentificationCard text="Sente um <span class='text-[#FF4D00] font-black'>peso</span> nos ombros que não parece ser seu" />
+                    <IdentificationCard text="<span class='text-[#FF4D00] font-black'>Dores na lombar</span>, coluna ou joelhos que nunca passam" />
+                    <IdentificationCard text="As crises do <span class='text-[#FF4D00] font-black'>ciático</span> que te limitam para viver" />
+                    <IdentificationCard text="As dores generalizadas e o cansaço extremo da <span class='text-[#FF4D00] font-black'>fibromialgia</span>" />
+                    <IdentificationCard text="Uma mente que não desacelera e uma constante <span class='text-[#FF4D00] font-black'>ansiedade</span> que te consome" />
+                    <IdentificationCard text="A frustração de ver que tenta organizar a vida… mas o <span class='text-[#FF4D00] font-black'>dinheiro</span> nunca sobra" />
+                    <IdentificationCard text="Um <span class='text-[#FF4D00] font-black'>peso</span> nos ombros que não parece ser seu" />
                   </div>
                   
                   <div className="mt-16 text-center">
-                    <p className="text-2xl md:text-3xl text-white/60 mb-8 font-light italic">
+                    <p className="text-2xl md:text-3xl text-white/90 mb-8 font-light italic">
                       "Então provavelmente isso não é falta de esforço."
                     </p>
                     <p className="text-3xl md:text-5xl serif text-brand-accent font-bold">
                       É porque algo dentro da sua vida está desorganizado.
                     </p>
+                    <div className="mt-12">
+                      <button 
+                        onClick={scrollToForm}
+                        className="bg-brand-accent text-white font-black px-8 md:px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-sm md:text-base uppercase tracking-[0.2em] md:tracking-[0.4em] shadow-2xl group active:scale-95 inline-block"
+                      >
+                        QUERO ME INSCREVER AGORA
+                      </button>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -267,7 +275,7 @@ export default function App() {
                 <div className="max-w-5xl mx-auto">
                   <div className="text-center mb-12">
                     <h2 className="serif text-3xl md:text-5xl text-brand-ink">A Reorganização dos 5 Pilares</h2>
-                    <p className="mt-6 text-xl text-brand-ink/70 font-light max-w-2xl mx-auto">
+                    <p className="mt-6 text-xl text-brand-ink/90 font-light max-w-2xl mx-auto">
                       Nesta aula exclusiva, vou abrir a "caixa-preta" do meu método para te mostrar como curar as desordens que afetam sua vida:
                     </p>
                   </div>
@@ -314,6 +322,15 @@ export default function App() {
                       "Resultados que podem ser percebidos já no primeiro mês."
                     </p>
                   </div>
+                  
+                  <div className="mt-12 text-center">
+                    <button 
+                      onClick={scrollToForm}
+                      className="bg-brand-accent text-white font-black px-8 md:px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-sm md:text-base uppercase tracking-[0.2em] md:tracking-[0.4em] shadow-2xl group active:scale-95 inline-block"
+                    >
+                      GARANTIR MINHA VAGA GRATUITA
+                    </button>
+                  </div>
                 </div>
               </section>
 
@@ -322,7 +339,7 @@ export default function App() {
                 <div className="max-w-6xl mx-auto">
                   <div className="text-center mb-12">
                     <h2 className="serif text-4xl md:text-7xl text-brand-ink mb-6">Histórias Reais de Transformação</h2>
-                    <p className="text-xl md:text-2xl text-brand-ink/70 font-light">Veja quem já aplicou os 5 pilares e mudou sua realidade</p>
+                    <p className="text-xl md:text-2xl text-brand-ink/90 font-light">Veja quem já aplicou os 5 pilares e mudou sua realidade</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-12">
@@ -431,6 +448,14 @@ export default function App() {
                         Entendo a dor física porque acompanhei e transformei a vida de centenas de pessoas. E entendo os desafios financeiros porque também vivi minha própria transformação. Meu trabalho é mostrar que, quando o sistema familiar se reorganiza, a saúde, os relacionamentos e a prosperidade começam a encontrar o lugar certo.
                       </p>
                     </div>
+                    <div className="pt-4">
+                      <button 
+                        onClick={scrollToForm}
+                        className="bg-brand-accent text-white font-black px-8 md:px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-sm md:text-base uppercase tracking-[0.2em] md:tracking-[0.4em] shadow-2xl group active:scale-95 inline-block"
+                      >
+                        MUDAR MINHA HISTÓRIA
+                      </button>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -439,10 +464,10 @@ export default function App() {
               <section className="py-8 md:py-12 px-6 text-center bg-brand-ink text-white">
                 <div className="max-w-3xl mx-auto">
                   <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-accent leading-tight">O seu sistema familiar espera por coragem.</h2>
-                  <p className="text-2xl text-white/60 mb-12 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
+                  <p className="text-2xl text-white/90 mb-12 font-light">Essa pessoa corajosa para mudar a história de escassez e dor é você?</p>
                 <button 
                   onClick={scrollToForm}
-                  className="bg-brand-accent text-white font-black px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-base uppercase tracking-[0.4em] shadow-2xl group active:scale-95"
+                  className="bg-brand-accent text-white font-black px-8 md:px-12 py-6 rounded-none hover:bg-white hover:text-brand-ink transition-all text-sm md:text-base uppercase tracking-[0.2em] md:tracking-[0.4em] shadow-2xl group active:scale-95 inline-block"
                 >
                   GARANTIR MINHA VAGA
                 </button>
@@ -466,10 +491,10 @@ export default function App() {
             </div>
             <div className="text-left md:text-right">
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Suporte</p>
-              <p className="text-lg opacity-60">robertofirmino.suporte@gmail.com</p>
+              <p className="text-lg md:text-base lg:text-lg opacity-90">equipe.hdsf@robertofirminodossantos.com.br</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-30">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-70">
             <p>© 2026 • Os 5 Pilares da Vida Saudável</p>
             <div className="flex gap-10">
               <button 
@@ -516,7 +541,7 @@ export default function App() {
               {activeModal === 'privacy' ? (
                 <div className="prose prose-sm font-sans">
                   <h3 className="serif text-2xl mb-8 uppercase tracking-widest border-b border-brand-ink/10 pb-4">Política de Privacidade</h3>
-                  <div className="space-y-6 text-sm text-brand-ink/70 leading-relaxed font-medium">
+                  <div className="space-y-6 text-sm text-brand-ink/90 leading-relaxed font-medium">
                     <p>Seus dados são tratados com o máximo rigor e segurança, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
                     
                     <section>
@@ -531,7 +556,7 @@ export default function App() {
 
                     <section>
                       <h4 className="text-brand-ink font-black uppercase text-xs mb-2">3. Seus Direitos</h4>
-                      <p>Você tem total direito de solicitar a exclusão de seus dados, retificação ou revogação do consentimento a qualquer momento. Basta entrar em contato através do e-mail: robertofirmino.suporte@gmail.com.</p>
+                      <p>Você tem total direito de solicitar a exclusão de seus dados, retificação ou revogação do consentimento a qualquer momento. Basta entrar em contato através do e-mail: equipe.hdsf@robertofirminodossantos.com.br.</p>
                     </section>
 
                     <section>
@@ -543,7 +568,7 @@ export default function App() {
               ) : (
                 <div className="prose prose-sm font-sans">
                   <h3 className="serif text-2xl mb-8 uppercase tracking-widest border-b border-brand-ink/10 pb-4">Termos de Uso</h3>
-                  <div className="space-y-6 text-sm text-brand-ink/70 leading-relaxed font-medium">
+                  <div className="space-y-6 text-sm text-brand-ink/90 leading-relaxed font-medium">
                     <p>Ao acessar este site e se inscrever em nossa aula gratuita, você concorda em cumprir estes termos.</p>
 
                     <section>
@@ -582,7 +607,7 @@ function PillarCard({ title, text }: { title: string, text: string }) {
   return (
     <div className="p-8 bg-white shadow-xl shadow-brand-ink/5 border-t-4 border-brand-accent hover:-translate-y-2 transition-all group">
       <h4 className="serif text-2xl mb-4 text-brand-ink group-hover:text-brand-accent transition-colors">{title}</h4>
-      <p className="text-base text-brand-ink/70 leading-relaxed">{text}</p>
+      <p className="text-base text-brand-ink/90 leading-relaxed">{text}</p>
     </div>
   );
 }
@@ -591,16 +616,16 @@ function DiscoveryItem({ title, text }: { title: string, text: string }) {
   return (
     <div className="space-y-2">
       <h5 className="text-lg font-black uppercase tracking-widest text-brand-accent">/ {title}</h5>
-      <p className="text-lg text-white/70 leading-relaxed font-light">{text}</p>
+      <p className="text-lg text-white/90 leading-relaxed font-light">{text}</p>
     </div>
   );
 }
 
 function IdentificationCard({ text }: { text: string }) {
   return (
-    <div className="p-10 bg-white/5 border border-white/10 hover:border-brand-accent hover:bg-white/10 transition-all group">
+    <div className="p-8 md:p-10 bg-white/5 border border-white/10 hover:border-brand-accent hover:bg-white/10 transition-all group flex items-center justify-center min-h-[160px] text-center">
       <p 
-        className="text-xl md:text-3xl font-light text-white opacity-80 group-hover:opacity-100 leading-relaxed"
+        className="text-lg md:text-xl font-light text-white leading-relaxed"
         dangerouslySetInnerHTML={{ __html: text }}
       />
     </div>
