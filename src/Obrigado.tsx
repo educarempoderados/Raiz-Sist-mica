@@ -27,7 +27,7 @@ export default function Obrigado() {
   return (
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         🗓 MasterClass Gratuita em Breve
+         MASTERCLASS | AO VIVO | GRATUITA | DIA 09/06/26 às 20 horas
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -72,7 +72,7 @@ export default function Obrigado() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-brand-ink/10 pt-20 items-start">
             <div className="space-y-10">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">Enquanto a data não chega...</span>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">Enquanto o dia 09/06 não chega...</span>
                 <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight">Conheça a base do Programa: A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR</h3>
               </div>
               <div className="space-y-6 text-lg md:text-xl text-brand-ink font-light leading-relaxed">
@@ -115,7 +115,7 @@ export default function Obrigado() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start mb-20 border-b border-white/10 pb-20">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Data Reservada</p>
-              <p className="serif text-3xl">Em Breve</p>
+              <p className="serif text-3xl">09 de Junho às 20h</p>
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Transmissão</p>

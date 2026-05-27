@@ -112,7 +112,7 @@ export default function App() {
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       {/* Top Bar */}
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         🗓 MasterClass Gratuita em Breve
+         MASTERCLASS | AO VIVO | GRATUITA | DIA 09/06/26 às 20 horas
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -165,50 +165,50 @@ export default function App() {
                     >
                       <div className="text-center mb-10">
                         <h2 className="serif text-2xl md:text-3xl mb-4 text-brand-accent">Garante sua vaga gratuita</h2>
-                        <p className="text-white/50 text-[11px] font-bold tracking-[0.1em] leading-relaxed uppercase">
+                        <p className="text-white text-[11px] font-bold tracking-[0.1em] leading-relaxed uppercase">
                           ⚠️ Atenção: As vagas são limitadas e o link de acesso à aula será enviado exclusivamente no nosso Grupo VIP do WhatsApp.
                         </p>
                       </div>
 
                       <div className="space-y-6">
                         <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white/60">Nome Completo</label>
+                          <label className="text-xs font-black uppercase tracking-widest text-white">Nome Completo</label>
                           <input
                             {...register("nome")}
                             placeholder="Seu nome"
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/20 font-medium",
-                              errors.nome && "border-brand-red"
+                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
+                              errors.nome && "border-white"
                             )}
                           />
-                          {errors.nome && <p className="text-brand-red text-xs font-bold mt-2 uppercase">{errors.nome.message}</p>}
+                          {errors.nome && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.nome.message}</p>}
                         </div>
 
                         <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white/60">Seu Melhor E-mail</label>
+                          <label className="text-xs font-black uppercase tracking-widest text-white">Seu Melhor E-mail</label>
                           <input
                             {...register("email")}
                             type="email"
                             placeholder="exemplo@email.com"
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/20 font-medium",
-                              errors.email && "border-brand-red"
+                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
+                              errors.email && "border-white"
                             )}
                           />
-                          {errors.email && <p className="text-brand-red text-xs font-bold mt-2 uppercase">{errors.email.message}</p>}
+                          {errors.email && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.email.message}</p>}
                         </div>
 
                         <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white/60">WhatsApp</label>
+                          <label className="text-xs font-black uppercase tracking-widest text-white">WhatsApp</label>
                           <input
                             {...register("whatsapp")}
                             placeholder="(00) 00000-0000"
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/20 font-medium",
-                              errors.whatsapp && "border-brand-red"
+                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
+                              errors.whatsapp && "border-white"
                             )}
                           />
-                          {errors.whatsapp && <p className="text-brand-red text-xs font-bold mt-2 uppercase">{errors.whatsapp.message}</p>}
+                          {errors.whatsapp && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.whatsapp.message}</p>}
                         </div>
 
                         <button
@@ -223,12 +223,12 @@ export default function App() {
                           )}
                         </button>
 
-                        <p className="text-[10px] text-white/40 text-center leading-relaxed font-medium uppercase tracking-tight">
+                        <p className="text-[10px] text-white/80 text-center leading-relaxed font-medium uppercase tracking-tight">
                           Seus dados estão seguros conosco. Ao se inscrever, você concorda que poderemos processar suas informações para fins de acesso à aula e comunicações relacionadas de acordo com a nossa <button type="button" onClick={() => setActiveModal('privacy')} className="underline hover:text-brand-accent transition-colors">Política de Privacidade</button>.
                         </p>
 
                         {error && (
-                          <div className="p-4 bg-brand-red/20 text-brand-red text-xs font-bold uppercase text-center">
+                          <div className="p-4 bg-brand-red/20 text-white text-xs font-bold uppercase text-center">
                             {error}
                           </div>
                         )}
@@ -399,31 +399,33 @@ export default function App() {
               </section>
 
               {/* AUTORIDADE */}
-              <section className="py-8 md:py-12 px-6 bg-brand-petroleum-light">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="relative group">
+              <section className="py-16 md:py-32 px-6 bg-brand-petroleum-light">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 md:gap-24 items-center">
+                  <div className="relative group max-w-sm mx-auto lg:max-w-none w-full">
                     <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img 
                       src={robertoImg} 
                       alt="Roberto Firmino dos Santos - Especialista" 
-                      className="w-full aspect-[4/5] object-cover shadow-2xl border-b-[12px] border-brand-ink"
+                      className="w-full aspect-[4/5] object-cover shadow-2xl border-l-[12px] border-b-[12px] border-brand-ink"
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <div className="space-y-6">
-                    <h3 className="serif text-5xl md:text-6xl text-brand-ink leading-[1] md:leading-[1]">Com quem você vai aprender?</h3>
-                    <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-wider">
-                      Roberto Firmino dos Santos
-                    </p>
-                    <div className="space-y-6 text-xl md:text-2xl text-brand-ink font-light leading-relaxed">
-                      <p className="font-bold border-l-4 border-brand-accent pl-6">
-                        Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-[#FF4D00] font-extrabold">dor</span>, a <span className="text-[#FF4D00] font-extrabold">escassez</span> e o <span className="text-[#FF4D00] font-extrabold">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
+                  <div className="space-y-8 md:space-y-10">
+                    <div>
+                      <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight md:leading-[1.1] mb-4">Com quem você vai aprender?</h3>
+                      <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-widest">
+                        Roberto Firmino dos Santos
+                      </p>
+                    </div>
+                    <div className="space-y-6 text-lg md:text-xl text-brand-ink/80 font-light leading-relaxed">
+                      <p className="font-medium text-brand-ink border-l-4 border-brand-accent pl-6 text-xl md:text-2xl">
+                        Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-brand-red font-black">dor</span>, a <span className="text-brand-red font-black">escassez</span> e o <span className="text-brand-red font-black">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
                       </p>
                       <p>
-                        Hoje, como <span className="text-[#FF4D00] font-black">Especialista Sistêmico em Dor, Doenças Crônicas e Questões Financeiras</span>, uno mais de 30 anos de experiência clínica com Constelação Familiar, Cinesiologia Aplicada e gestão prática de vida e negócios.
+                        Hoje, como <span className="font-black text-brand-ink">Especialista Sistêmico em Dor, Doenças Crônicas e Questões Financeiras</span>, uno mais de 30 anos de experiência clínica com Constelação Familiar, Cinesiologia Aplicada e gestão prática de vida e negócios.
                       </p>
                       <p>
-                        Ajudo principalmente <span className="text-[#FF4D00] font-bold">mulheres 30+</span> a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e <span className="text-[#FF4D00] font-bold">reorganizando sua relação com o dinheiro</span> — com <span className="text-[#FF4D00] font-extrabold">resultados percebidos já no primeiro mês</span>.
+                        Ajudo principalmente <span className="font-bold text-brand-ink">mulheres 30+</span> a se libertarem das dores físicas e emocionais, curando a raiz nas memórias familiares e <span className="font-bold text-brand-ink">reorganizando sua relação com o dinheiro</span> — com <span className="font-black text-brand-red">resultados percebidos já no primeiro mês</span>.
                       </p>
                       <p>
                         Entendo a dor física porque acompanhei e transformei a vida de centenas de pessoas. E entendo os desafios financeiros porque também vivi minha própria transformação. Meu trabalho é mostrar que, quando o sistema familiar se reorganiza, a saúde, os relacionamentos e a prosperidade começam a encontrar o lugar certo.
@@ -456,7 +458,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start mb-20 border-b border-white/10 pb-20">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Data Reservada</p>
-              <p className="serif text-3xl">Em Breve</p>
+              <p className="serif text-3xl">09 de Junho às 20h</p>
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Transmissão</p>
