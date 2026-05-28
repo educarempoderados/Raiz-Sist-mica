@@ -139,7 +139,7 @@ export default function App() {
                         DOR NO <span className="text-[#FF4D00]">OMBRO,</span>
                       </span>{" "}
                       <span className="block mb-2 md:inline md:mb-0">
-                        DOR <span className="text-[#FF4D00]">CRÔNICA</span> E DOENÇA <span className="text-[#FF4D00]">CRÔNICA</span>,
+                        <span className="text-[#FF4D00]">FIBROMIALGIA,</span> DOR <span className="text-[#FF4D00]">CRÔNICA</span> E DOENÇA <span className="text-[#FF4D00]">CRÔNICA</span>,
                       </span>{" "}
                       <span className="block md:inline">
                         <span className="text-[#FF4D00]">ANSIEDADE</span> E <span className="text-[#FF4D00]">DEPRESSÃO.</span>
