@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
 import { collection, query, getDocs, orderBy, Timestamp, deleteDoc, doc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
-import { Loader2, LogOut, FileDown, RefreshCw, Mail, Phone, Calendar, User as UserIcon, Lock, Trash2, CheckCircle2, XCircle, Search, Filter } from 'lucide-react';
+import { Loader2, LogOut, FileDown, RefreshCw, Mail, Phone, Calendar, User as UserIcon, Lock, Trash2, CheckCircle2, XCircle, Search, Filter, MessageCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -94,6 +94,19 @@ export default function Admin() {
     } finally {
       setFetchingInscricoes(false);
     }
+  };
+
+  const handleWhatsAppMessage = (inscrito: any) => {
+    let msg = '';
+    if (inscrito.entrouGrupo) {
+      msg = `Olá ${inscrito.nome}, vi que você se inscreveu na Masterclass e já está no nosso grupo VIP! Seja bem-vindo(a)!`;
+    } else {
+      msg = `Olá ${inscrito.nome}, vi que você se inscreveu na Masterclass! Ainda não entrou no grupo VIP? Acesse este link para não perder nada: https://chat.whatsapp.com/LHOEUdVmQqA9MAfML9KlP7`;
+    }
+    
+    const to = inscrito.whatsapp.replace(/\D/g, '');
+    const url = `https://wa.me/${to}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleDelete = async (id: string, nome: string) => {
@@ -346,13 +359,22 @@ export default function Admin() {
                         </div>
                       </td>
                       <td className="p-5 text-right">
-                        <button
-                          onClick={() => handleDelete(inscrito.id, inscrito.nome)}
-                          className="text-black/30 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-black/5 inline-flex items-center justify-center"
-                          title="Excluir"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+                        <div className="flex items-center justify-end gap-2">
+                          <button
+                            onClick={() => handleWhatsAppMessage(inscrito)}
+                            className="bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors px-3 py-1.5 rounded-full inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest"
+                            title="Enviar WhatsApp"
+                          >
+                            <MessageCircle className="w-3.5 h-3.5" /> Mensagem
+                          </button>
+                          <button
+                            onClick={() => handleDelete(inscrito.id, inscrito.nome)}
+                            className="text-black/30 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-black/5 inline-flex items-center justify-center"
+                            title="Excluir"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
