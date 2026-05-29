@@ -240,9 +240,13 @@ export default function Admin() {
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Acessos à Página</p>
               <p className="text-4xl font-black text-brand-ink">{stats.homeVisits}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]">
-              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Entraram no WhatsApp</p>
+            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]/40">
+              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Cliques no Link (Whats)</p>
               <p className="text-4xl font-black text-brand-ink">{stats.whatsappClicks}</p>
+            </div>
+            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]">
+              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Confirmados no Grupo</p>
+              <p className="text-4xl font-black text-brand-ink">{inscricoes.filter(i => i.entrouGrupo).length}</p>
             </div>
           </div>
           <div className="flex gap-4">
