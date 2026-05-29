@@ -144,107 +144,129 @@ export default function App() {
               <section className="relative pt-8 md:pt-16 pb-12 px-6">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 -z-10 blur-3xl rounded-full translate-x-1/2" />
                 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                  <div className="pt-4">
-                    <p className="text-brand-red font-black uppercase tracking-widest text-sm mb-4">Para você que cansou de lutar contra o próprio corpo e contra o saldo bancário.</p>
-                    <h1 className="serif text-3xl sm:text-4xl md:text-6xl font-black leading-tight mb-8 text-brand-ink uppercase tracking-tight">
-                      <span className="block mb-2 md:inline md:mb-0">
-                        DOR NA <span className="text-[#FF4D00]">COLUNA,</span>
-                      </span>{" "}
-                      <span className="block mb-2 md:inline md:mb-0">
-                        DOR NO <span className="text-[#FF4D00]">OMBRO,</span>
-                      </span>{" "}
-                      <span className="block mb-2 md:inline md:mb-0">
-                        <span className="text-[#FF4D00]">FIBROMIALGIA,</span> DOR <span className="text-[#FF4D00]">CRÔNICA</span> E DOENÇA <span className="text-[#FF4D00]">CRÔNICA</span>,
-                      </span>{" "}
-                      <span className="block md:inline">
-                        <span className="text-[#FF4D00]">ANSIEDADE</span> E <span className="text-[#FF4D00]">DEPRESSÃO.</span>
-                      </span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-brand-ink font-light leading-relaxed mb-10">
-                      A dor lombar, a queimação na coluna e a escassez financeira não são castigos — são mensagens. Descubra como silenciar a dor física e emocional que está travando a sua vida e a sua prosperidade.
-                    </p>
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+                  <div className="pt-4 lg:pt-0 w-full max-w-2xl flex flex-col justify-between">
+                    <div>
+                      <div className="inline-flex bg-brand-red/10 text-brand-red font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1.5 mb-5 border border-brand-red/20 rounded-sm">
+                        🔥 Masterclass Gratuita e Ao Vivo
+                      </div>
+                      
+                      <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.1] mb-5 text-brand-ink tracking-tight uppercase">
+                        O fim do ciclo de <br className="hidden sm:block" />
+                        <span className="text-[#FF4D00]">dores crônicas</span>, <br className="hidden md:block" />
+                        ansiedade e escassez.
+                      </h1>
+                      
+                      <p className="text-base md:text-lg text-brand-ink/80 font-medium leading-relaxed mb-8 max-w-xl">
+                        O seu corpo e sua conta bancária refletem a desordem do seu <strong className="text-brand-ink font-black">Sistema Familiar</strong>. Descubra como a <strong className="text-[#FF4D00] text-xs sm:text-sm font-black px-2 py-1 bg-[#FF4D00]/10 rounded-md">Reorganização dos 5 Pilares</strong> vai destravar seu foco, saúde e prosperidade.
+                      </p>
+                    </div>
                     
-                    <div className="flex items-center gap-4 p-6 bg-brand-petroleum-light border border-brand-petroleum/10 shadow-sm border-l-8 border-l-brand-accent">
-                      <p className="text-sm md:text-base font-bold text-brand-petroleum uppercase tracking-wider">
-                        O CAMINHO PRÁTICO: COMO CURAR DORES CRÔNICAS, VENCER A ANSIEDADE E DESTRAVAR SUAS FINANÇAS NO PRIMEIRO MÊS.
+                    <div className="flex flex-col gap-3 mb-8 max-w-xl">
+                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
+                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Descubra a origem invisível das suas <span className="font-black text-[#FF4D00]">dores crônicas e fibromialgia</span> que nenhum outro tratamento resolveu.</p>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
+                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Transforme a <span className="font-black text-[#FF4D00]">sobrecarga emocional e ansiedade</span> em clareza, energia e poder de decisão.</p>
+                      </div>
+                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
+                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Entenda o que está travando o seu avanço <span className="font-black text-[#FF4D00]">profissional e financeiro</span> e como se libertar disso.</p>
+                      </div>
+                    </div>
+
+                    <div className="hidden lg:flex items-center gap-4 py-4 px-6 bg-[#FF4D00]/5 border border-[#FF4D00]/20 border-l-4 border-l-[#FF4D00] rounded-sm mt-auto">
+                      <Target className="w-8 h-8 text-[#FF4D00] shrink-0" />
+                      <p className="text-sm border-l border-[#FF4D00]/20 pl-4 font-bold text-brand-ink leading-tight">
+                        <span className="text-[#FF4D00] uppercase tracking-[0.2em] block text-[10px] mb-1">Atenção</span>
+                        O link de acesso ao conteúdo exclusivo e materiais de apoio será enviado no <span className="text-brand-red font-black">Grupo VIP do WhatsApp</span>. Garanta sua vaga agora.
                       </p>
                     </div>
                   </div>
 
                   {/* FORM */}
-                  <div id="inscricao-form" className="relative group">
-                    <div className="absolute -inset-2 bg-brand-accent/20 rounded-none blur-xl group-hover:bg-brand-accent/30 transition-all opacity-0 group-hover:opacity-100" />
+                  <div id="inscricao-form" className="relative group w-full max-w-md mx-auto lg:max-w-none">
+                    <div className="absolute -inset-2 bg-blue-500/20 rounded-2xl blur-2xl group-hover:bg-blue-500/30 transition-all opacity-0 group-hover:opacity-100" />
                     <form 
                       onSubmit={handleSubmit(onSubmit)} 
-                      className="bg-brand-ink text-white p-8 md:p-12 shadow-2xl relative border-t-8 border-brand-accent"
+                      className="bg-[#003B95] text-white p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,59,149,0.4)] rounded-2xl relative border border-white/10"
                     >
-                      <div className="text-center mb-10">
-                        <h2 className="serif text-2xl md:text-3xl mb-4 text-brand-accent">Garante sua vaga gratuita</h2>
-                        <p className="text-white text-[11px] font-bold tracking-[0.1em] leading-relaxed uppercase">
-                          ⚠️ Atenção: As vagas são limitadas e o link de acesso à aula será enviado exclusivamente no nosso Grupo VIP do WhatsApp.
+                      <div className="text-center mb-8">
+                        <div className="bg-green-400/20 text-green-300 border border-green-400/30 text-[10px] font-black uppercase tracking-[0.2em] py-1.5 px-4 mb-5 rounded-full inline-flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                          Inscrição 100% Online e Gratuita
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-black mb-3 text-white leading-tight">Gere seu ingresso VIP para a Masterclass</h2>
+                        <p className="text-white/80 text-[13px] font-medium leading-relaxed px-4">
+                          O acesso completo e o material de apoio serão enviados direto no seu WhatsApp.
                         </p>
                       </div>
 
-                      <div className="space-y-6">
-                        <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white">Nome Completo</label>
+                      <div className="space-y-4">
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-white/90 pl-1">Nome Completo</label>
                           <input
                             {...register("nome")}
-                            placeholder="Seu nome"
+                            placeholder="Digite seu nome..."
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
-                              errors.nome && "border-white"
+                              "w-full bg-white border border-transparent rounded-xl px-5 py-4 text-sm focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/50 outline-none transition-all placeholder:text-black/30 font-medium text-brand-ink shadow-inner",
+                              errors.nome && "border-[#FF4D00] focus:ring-[#FF4D00]/50"
                             )}
                           />
-                          {errors.nome && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.nome.message}</p>}
+                          {errors.nome && <p className="text-white text-[10px] font-bold mt-1 pl-1 uppercase">{errors.nome.message}</p>}
                         </div>
 
-                        <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white">Seu Melhor E-mail</label>
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-white/90 pl-1">E-mail Principal</label>
                           <input
                             {...register("email")}
                             type="email"
-                            placeholder="exemplo@email.com"
+                            placeholder="seu.melhor@email.com"
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
-                              errors.email && "border-white"
+                              "w-full bg-white border border-transparent rounded-xl px-5 py-4 text-sm focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/50 outline-none transition-all placeholder:text-black/30 font-medium text-brand-ink shadow-inner",
+                              errors.email && "border-[#FF4D00] focus:ring-[#FF4D00]/50"
                             )}
                           />
-                          {errors.email && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.email.message}</p>}
+                          {errors.email && <p className="text-white text-[10px] font-bold mt-1 pl-1 uppercase">{errors.email.message}</p>}
                         </div>
 
-                        <div className="space-y-2">
-                          <label className="text-xs font-black uppercase tracking-widest text-white">WhatsApp</label>
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-white/90 pl-1">WhatsApp (com DDD)</label>
                           <input
                             {...register("whatsapp")}
-                            placeholder="(00) 00000-0000"
+                            placeholder="(11) 99999-9999"
                             className={cn(
-                              "w-full bg-white/10 border border-white/20 px-5 py-5 text-base focus:border-brand-accent outline-none transition-all placeholder:text-white/40 font-medium",
-                              errors.whatsapp && "border-white"
+                              "w-full bg-white border border-transparent rounded-xl px-5 py-4 text-sm focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/50 outline-none transition-all placeholder:text-black/30 font-medium text-brand-ink shadow-inner",
+                              errors.whatsapp && "border-[#FF4D00] focus:ring-[#FF4D00]/50"
                             )}
                           />
-                          {errors.whatsapp && <p className="text-white text-xs font-bold mt-2 uppercase">{errors.whatsapp.message}</p>}
+                          {errors.whatsapp && <p className="text-white text-[10px] font-bold mt-1 pl-1 uppercase">{errors.whatsapp.message}</p>}
                         </div>
 
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-brand-accent text-white font-black py-4 mt-8 rounded-none hover:bg-brand-white hover:text-brand-ink transition-all flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest group shadow-xl active:scale-95"
+                          className="w-full bg-[#FF4D00] text-white font-black py-4 mt-6 rounded-xl hover:bg-[#FF6A2B] transition-all flex items-center justify-center gap-3 text-[13px] md:text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(255,77,0,0.4)] active:scale-95"
                         >
-                          {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : (
+                          {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (
                             <>
-                              GARANTIR MINHA VAGA
+                              <ArrowRight className="w-5 h-5" /> QUERO MINHA VAGA AGORA
                             </>
                           )}
                         </button>
-
-                        <p className="text-xs text-white/90 text-center leading-relaxed font-medium uppercase tracking-tight">
-                          Seus dados estão seguros conosco. Ao se inscrever, você concorda que poderemos processar suas informações para fins de acesso à aula e comunicações relacionadas de acordo com a nossa <button type="button" onClick={() => setActiveModal('privacy')} className="underline hover:text-brand-accent transition-colors">Política de Privacidade</button>.
-                        </p>
+                        
+                        <div className="flex items-center justify-center gap-2 mt-4 text-white/60">
+                          <ShieldCheck className="w-4 h-4" />
+                          <p className="text-[10px] uppercase font-bold tracking-widest text-white/60">Suas informações estão seguras</p>
+                        </div>
 
                         {error && (
-                          <div className="p-4 bg-brand-red/20 text-white text-xs font-bold uppercase text-center">
+                          <div className="p-3 mt-4 bg-red-500/20 text-white border border-red-500/30 rounded-lg text-xs font-bold uppercase text-center">
                             {error}
                           </div>
                         )}
