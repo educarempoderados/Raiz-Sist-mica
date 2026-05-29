@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { UserCheck, AlertCircle } from 'lucide-react';
+import { db } from './lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LHOEUdVmQqA9MAfML9KlP7";
 
@@ -18,11 +20,37 @@ export default function Obrigado() {
   const [activeModal, setActiveModal] = useState<'terms' | null>(null);
 
   useEffect(() => {
+    // Log page view
+    const logVisit = async () => {
+      try {
+        await addDoc(collection(db, 'analytics_events'), {
+          type: 'EXIBICAO_PAGINA',
+          path: '/obrigado',
+          createdAt: serverTimestamp()
+        });
+      } catch (err) {
+        console.error("Erro ao registrar acesso", err);
+      }
+    };
+    logVisit();
+
     const data = localStorage.getItem('inscricao_pilares_saudaveis');
     if (data) {
       setIsAlreadyRegistered(true);
     }
   }, []);
+
+  const handleWhatsAppClick = async () => {
+    try {
+      await addDoc(collection(db, 'analytics_events'), {
+        type: 'CLIQUE_WHATSAPP',
+        path: '/obrigado',
+        createdAt: serverTimestamp()
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
@@ -58,6 +86,7 @@ export default function Obrigado() {
             <a
               href={WHATSAPP_GROUP_URL}
               target="_blank"
+              onClick={handleWhatsAppClick}
               rel="no-referrer"
               className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-6 py-2 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
             >

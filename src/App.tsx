@@ -66,6 +66,21 @@ export default function App() {
   const whatsappValue = watch("whatsapp");
 
   useEffect(() => {
+    // Log page view
+    const logVisit = async () => {
+      try {
+        await addDoc(collection(db, 'analytics_events'), {
+          type: 'EXIBICAO_PAGINA',
+          path: '/',
+          createdAt: serverTimestamp()
+        });
+      } catch (err) {
+        // Silently fail for analytics to not disturb UX
+        console.error("Erro ao registrar acesso", err);
+      }
+    };
+    logVisit();
+    
     const data = localStorage.getItem('inscricao_pilares_saudaveis');
     if (data) {
       window.location.href = '/obrigado';

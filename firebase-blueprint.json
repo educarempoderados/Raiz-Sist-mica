@@ -29,12 +29,37 @@
         }
       },
       "required": ["nome", "email", "whatsapp", "createdAt", "source"]
+    },
+    "AnalyticsEvent": {
+      "title": "Evento de Analytics",
+      "description": "Registro de eventos como visitas à página ou cliques.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Tipo de evento, ex: EXIBICAO_PAGINA, CLIQUE_WHATSAPP"
+        },
+        "path": {
+          "type": "string",
+          "description": "O caminho da página onde o evento ocorreu"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora do evento"
+        }
+      },
+      "required": ["type", "path", "createdAt"]
     }
   },
   "firestore": {
     "inscricoes/{id}": {
       "schema": "Inscricao",
       "description": "Coleção de inscrições de leads."
+    },
+    "analytics_events/{id}": {
+      "schema": "AnalyticsEvent",
+      "description": "Eventos de rastreamento do site."
     }
   }
 }

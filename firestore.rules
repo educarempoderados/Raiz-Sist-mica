@@ -35,6 +35,20 @@ service cloud.firestore {
         && data.createdAt == request.time;
     }
 
+    function isValidAnalyticsEvent(data) {
+      return data.keys().hasAll(['type', 'path', 'createdAt'])
+        && data.keys().size() == 3
+        && data.type is string && data.type.size() <= 100
+        && data.path is string && data.path.size() <= 200
+        && data.createdAt == request.time;
+    }
+
+    match /analytics_events/{id} {
+      allow create: if isValidId(id) && isValidAnalyticsEvent(incoming());
+      allow get, list: if isSignedIn();
+      allow update, delete: if isSignedIn();
+    }
+
     match /inscricoes/{id} {
       allow create: if isValidId(id) && isValidInscricao(incoming());
       allow get, list: if isSignedIn();

@@ -1,9 +1,18 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
 import { collection, query, getDocs, orderBy, Timestamp } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { Loader2, LogOut, FileDown, RefreshCw, Mail, Phone, Calendar, User as UserIcon, Lock } from 'lucide-react';
 import { format } from 'date-fns';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+/**
+ * Utility for Tailwind class merging
+ */
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export default function Admin() {
   const [user, setUser] = useState<User | null>(null);
@@ -15,6 +24,7 @@ export default function Admin() {
 
   const [inscricoes, setInscricoes] = useState<any[]>([]);
   const [fetchingInscricoes, setFetchingInscricoes] = useState(false);
+  const [stats, setStats] = useState({ homeVisits: 0, obrigadoVisits: 0, whatsappClicks: 0 });
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
@@ -53,12 +63,31 @@ export default function Admin() {
       const snapshot = await getDocs(q);
       const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setInscricoes(data);
+
+      const qStats = query(collection(db, 'analytics_events'));
+      const statsSnapshot = await getDocs(qStats);
+      let homeVisits = 0;
+      let obrigadoVisits = 0;
+      let whatsappClicks = 0;
+
+      statsSnapshot.forEach(doc => {
+        const item = doc.data();
+        if (item.type === 'EXIBICAO_PAGINA') {
+          if (item.path === '/') homeVisits++;
+          if (item.path === '/obrigado') obrigadoVisits++;
+        }
+        if (item.type === 'CLIQUE_WHATSAPP') {
+          whatsappClicks++;
+        }
+      });
+      setStats({ homeVisits, obrigadoVisits, whatsappClicks });
+
     } catch (err: any) {
       console.error(err);
       if (err.message.includes('permission-denied')) {
-        setAuthError('Você não tem permissão para visualizar os inscritos.');
+        setAuthError('Você não tem permissão para visualizar os dados.');
       } else {
-        setAuthError('Erro ao carregar inscritos.');
+        setAuthError('Erro ao carregar dados.');
       }
     } finally {
       setFetchingInscricoes(false);
@@ -167,10 +196,18 @@ export default function Admin() {
 
       <main className="max-w-7xl mx-auto p-6 md:p-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
-          <div className="flex gap-4">
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w[200px] border-l-4 border-brand-accent">
+          <div className="flex flex-wrap gap-4">
+            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-brand-accent">
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Total de Inscritos</p>
               <p className="text-4xl font-black text-brand-ink">{inscricoes.length}</p>
+            </div>
+            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-brand-ink">
+              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Acessos à Página</p>
+              <p className="text-4xl font-black text-brand-ink">{stats.homeVisits}</p>
+            </div>
+            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]">
+              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Entraram no WhatsApp</p>
+              <p className="text-4xl font-black text-brand-ink">{stats.whatsappClicks}</p>
             </div>
           </div>
           <div className="flex gap-4">
