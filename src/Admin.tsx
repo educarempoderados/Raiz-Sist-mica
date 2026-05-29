@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
-import { collection, query, getDocs, orderBy, Timestamp } from 'firebase/firestore';
+import { collection, query, getDocs, orderBy, Timestamp, deleteDoc, doc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
-import { Loader2, LogOut, FileDown, RefreshCw, Mail, Phone, Calendar, User as UserIcon, Lock } from 'lucide-react';
+import { Loader2, LogOut, FileDown, RefreshCw, Mail, Phone, Calendar, User as UserIcon, Lock, Trash2, CheckCircle2, XCircle, Search, Filter } from 'lucide-react';
 import { format } from 'date-fns';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -25,6 +25,8 @@ export default function Admin() {
   const [inscricoes, setInscricoes] = useState<any[]>([]);
   const [fetchingInscricoes, setFetchingInscricoes] = useState(false);
   const [stats, setStats] = useState({ homeVisits: 0, obrigadoVisits: 0, whatsappClicks: 0 });
+  const [filtroGrupo, setFiltroGrupo] = useState<'TODOS' | 'ENTROU' | 'NAO_ENTROU'>('TODOS');
+  const [busca, setBusca] = useState('');
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
@@ -94,13 +96,33 @@ export default function Admin() {
     }
   };
 
+  const handleDelete = async (id: string, nome: string) => {
+    if (window.confirm(`Tem certeza que deseja excluir '${nome}'?`)) {
+      try {
+        await deleteDoc(doc(db, 'inscricoes', id));
+        setInscricoes(prev => prev.filter(i => i.id !== id));
+      } catch (err: any) {
+        console.error('Erro ao excluir:', err);
+        alert('Falha ao excluir o registro.');
+      }
+    }
+  };
+
+  const filteredInscricoes = inscricoes.filter(i => {
+    const matchBusca = i.nome?.toLowerCase().includes(busca.toLowerCase()) || i.email?.toLowerCase().includes(busca.toLowerCase()) || i.whatsapp?.includes(busca);
+    if (filtroGrupo === 'ENTROU') return matchBusca && i.entrouGrupo;
+    if (filtroGrupo === 'NAO_ENTROU') return matchBusca && !i.entrouGrupo;
+    return matchBusca;
+  });
+
   const exportCSV = () => {
-    const headers = ['Nome', 'Email', 'WhatsApp', 'Data de Inscrição'];
-    const rows = inscricoes.map(i => [
+    const headers = ['Nome', 'Email', 'WhatsApp', 'Data de Inscrição', 'Entrou no Grupo'];
+    const rows = filteredInscricoes.map(i => [
       i.nome,
       i.email,
       i.whatsapp,
-      i.createdAt ? format(i.createdAt.toDate(), 'dd/MM/yyyy HH:mm:ss') : 'N/A'
+      i.createdAt ? format(i.createdAt.toDate(), 'dd/MM/yyyy HH:mm:ss') : 'N/A',
+      i.entrouGrupo ? 'Sim' : 'Nao'
     ]);
     
     const csvContent = "data:text/csv;charset=utf-8," 
@@ -226,6 +248,39 @@ export default function Admin() {
           </div>
         </div>
 
+        <div className="mb-6 flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative flex-1 w-full">
+            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-black/40" />
+            <input 
+              type="text" 
+              placeholder="Buscar por nome, e-mail ou whatsapp..."
+              value={busca}
+              onChange={e => setBusca(e.target.value)}
+              className="w-full bg-white border border-black/10 pl-12 pr-4 py-3 text-sm focus:outline-none focus:border-brand-ink focus:ring-1 focus:ring-brand-ink transition-all"
+            />
+          </div>
+          <div className="flex bg-white border border-black/10 rounded-sm">
+            <button
+              onClick={() => setFiltroGrupo('TODOS')}
+              className={cn("px-4 py-3 text-xs font-bold uppercase tracking-widest transition-all border-r border-black/10", filtroGrupo === 'TODOS' ? "bg-brand-ink text-white" : "bg-transparent text-black/60 hover:text-black")}
+            >
+              Todos
+            </button>
+            <button
+              onClick={() => setFiltroGrupo('ENTROU')}
+              className={cn("px-4 py-3 text-xs font-bold uppercase tracking-widest transition-all border-r border-black/10 flex items-center gap-2", filtroGrupo === 'ENTROU' ? "bg-brand-ink text-white" : "bg-transparent text-black/60 hover:text-black")}
+            >
+               <CheckCircle2 className="w-3 h-3" /> No Grupo
+            </button>
+            <button
+              onClick={() => setFiltroGrupo('NAO_ENTROU')}
+              className={cn("px-4 py-3 text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2", filtroGrupo === 'NAO_ENTROU' ? "bg-brand-ink text-white" : "bg-transparent text-black/60 hover:text-black")}
+            >
+               <XCircle className="w-3 h-3" /> Não Entrou
+            </button>
+          </div>
+        </div>
+
         <div className="bg-white shadow-sm border border-black/5 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
@@ -235,17 +290,19 @@ export default function Admin() {
                   <th className="p-5 font-bold">Email</th>
                   <th className="p-5 font-bold">WhatsApp</th>
                   <th className="p-5 font-bold">Data</th>
+                  <th className="p-5 font-bold">Grupo WhatsApp</th>
+                  <th className="p-5 font-bold text-right">Ação</th>
                 </tr>
               </thead>
               <tbody>
-                {inscricoes.length === 0 ? (
+                {filteredInscricoes.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="p-12 text-center text-black/40">
-                      {fetchingInscricoes ? 'Carregando...' : 'Nenhum inscrito ainda.'}
+                    <td colSpan={6} className="p-12 text-center text-black/40">
+                      {fetchingInscricoes ? 'Carregando...' : 'Nenhum inscrito encontrado.'}
                     </td>
                   </tr>
                 ) : (
-                  inscricoes.map((inscrito, index) => (
+                  filteredInscricoes.map((inscrito, index) => (
                     <tr key={inscrito.id} className="border-b border-black/5 hover:bg-brand-accent/5 transition-colors">
                       <td className="p-5">
                         <div className="flex items-center gap-3">
@@ -274,6 +331,28 @@ export default function Admin() {
                           <Calendar className="w-4 h-4" />
                           {inscrito.createdAt ? format(inscrito.createdAt.toDate(), 'dd/MM/yy HH:mm') : '-'}
                         </div>
+                      </td>
+                      <td className="p-5">
+                        <div className="flex items-center gap-2">
+                          {inscrito.entrouGrupo ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-700 text-[10px] font-black uppercase tracking-widest border border-green-200">
+                              <CheckCircle2 className="w-3 h-3" /> Sim
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-red-700 text-[10px] font-black uppercase tracking-widest border border-red-200">
+                              <XCircle className="w-3 h-3" /> Não
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td className="p-5 text-right">
+                        <button
+                          onClick={() => handleDelete(inscrito.id, inscrito.nome)}
+                          className="text-black/30 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-black/5 inline-flex items-center justify-center"
+                          title="Excluir"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
                       </td>
                     </tr>
                   ))

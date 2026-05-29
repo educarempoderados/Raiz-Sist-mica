@@ -103,13 +103,14 @@ export default function App() {
     try {
       // Simplificado: removemos a verificação de duplicidade para garantir o fluxo
       // e evitar problemas de permissão de leitura não autorizada
-      await addDoc(collection(db, 'inscricoes'), {
+      const docRef = await addDoc(collection(db, 'inscricoes'), {
         ...data,
         createdAt: serverTimestamp(),
-        source: 'A Raiz Sistêmica'
+        source: 'A Raiz Sistêmica',
+        entrouGrupo: false
       });
 
-      localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify(data));
+      localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify({ ...data, id: docRef.id }));
       window.location.href = '/obrigado';
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, 'inscricoes');

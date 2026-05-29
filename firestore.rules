@@ -27,20 +27,18 @@ service cloud.firestore {
     // Validation for Inscrição
     function isValidInscricao(data) {
       return data.keys().hasAll(['nome', 'email', 'whatsapp', 'createdAt', 'source'])
-        && data.keys().size() == 5
         && data.nome is string && data.nome.size() >= 2 && data.nome.size() <= 100
         && data.email is string && data.email.size() <= 100 && data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
         && data.whatsapp is string && data.whatsapp.size() >= 10 && data.whatsapp.size() <= 25
         && data.source is string && data.source.size() <= 100
-        && data.createdAt == request.time;
+        && data.createdAt is timestamp;
     }
 
     function isValidAnalyticsEvent(data) {
       return data.keys().hasAll(['type', 'path', 'createdAt'])
-        && data.keys().size() == 3
         && data.type is string && data.type.size() <= 100
         && data.path is string && data.path.size() <= 200
-        && data.createdAt == request.time;
+        && data.createdAt is timestamp;
     }
 
     match /analytics_events/{id} {
@@ -51,8 +49,9 @@ service cloud.firestore {
 
     match /inscricoes/{id} {
       allow create: if isValidId(id) && isValidInscricao(incoming());
+      allow update: if isValidInscricao(incoming()) || isSignedIn();
       allow get, list: if isSignedIn();
-      allow update, delete: if isSignedIn();
+      allow delete: if isSignedIn();
     }
 
     match /admins/{userId} {

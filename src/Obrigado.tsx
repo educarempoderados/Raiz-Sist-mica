@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { UserCheck, AlertCircle } from 'lucide-react';
 import { db } from './lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LHOEUdVmQqA9MAfML9KlP7";
 
@@ -47,6 +47,15 @@ export default function Obrigado() {
         path: '/obrigado',
         createdAt: serverTimestamp()
       });
+
+      const data = localStorage.getItem('inscricao_pilares_saudaveis');
+      if (data) {
+        const inscricao = JSON.parse(data);
+        if (inscricao.id) {
+          const docRef = doc(db, 'inscricoes', inscricao.id);
+          await updateDoc(docRef, { entrouGrupo: true, updatedAt: serverTimestamp() });
+        }
+      }
     } catch (err) {
       console.error(err);
     }
