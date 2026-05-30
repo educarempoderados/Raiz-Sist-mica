@@ -126,11 +126,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
-      {/* Top Bar */}
-      <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         MASTERCLASS | AO VIVO | GRATUITA | DIA 09/06/26 às 20 horas
-      </div>
-
       <main className="relative z-10 w-full overflow-hidden">
         <AnimatePresence mode="wait">
             <motion.div
@@ -144,66 +139,32 @@ export default function App() {
               <section className="relative pt-8 md:pt-16 pb-12 px-6">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 -z-10 blur-3xl rounded-full translate-x-1/2" />
                 
+                <div className="max-w-5xl mx-auto text-center mb-10 md:mb-16">
+                  <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.05] text-brand-ink tracking-tight uppercase">
+                    OS <span className="text-[#FF4D00]">5 PILARES</span> DA VIDA SAUDÁVEL
+                  </h1>
+                  <p className="mt-6 text-lg md:text-xl text-brand-ink/80 font-medium max-w-3xl mx-auto">
+                    Descubra a importância de ter os seus pilares alinhados para uma vida plena: <strong className="text-brand-ink font-bold">Saúde Física, Emocional, Mental, Espiritual e Financeira</strong>.
+                  </p>
+                </div>
+
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
-                  <div className="pt-4 lg:pt-0 w-full max-w-2xl flex flex-col justify-between">
-                    <div>
-                      <div className="inline-flex bg-brand-red/10 text-brand-red font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1.5 mb-5 border border-brand-red/20 rounded-sm">
-                        🔥 Masterclass Gratuita e Ao Vivo
-                      </div>
-                      
-                      <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.1] mb-5 text-brand-ink tracking-tight uppercase">
-                        O fim do ciclo de <br className="hidden sm:block" />
-                        <span className="text-[#FF4D00]">dores crônicas</span>, <br className="hidden md:block" />
-                        ansiedade e escassez.
-                      </h1>
-                      
-                      <p className="text-base md:text-lg text-brand-ink/80 font-medium leading-relaxed mb-8 max-w-xl">
-                        O seu corpo e sua conta bancária refletem a desordem do seu <strong className="text-brand-ink font-black">Sistema Familiar</strong>. Descubra como a <strong className="text-[#FF4D00] text-xs sm:text-sm font-black px-2 py-1 bg-[#FF4D00]/10 rounded-md">Reorganização dos 5 Pilares</strong> vai destravar seu foco, saúde e prosperidade.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col gap-3 mb-8 max-w-xl">
-                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
-                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
-                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Descubra a origem invisível das suas <span className="font-black text-[#FF4D00]">dores crônicas e fibromialgia</span> que nenhum outro tratamento resolveu.</p>
-                      </div>
-                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
-                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
-                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Transforme a <span className="font-black text-[#FF4D00]">sobrecarga emocional e ansiedade</span> em clareza, energia e poder de decisão.</p>
-                      </div>
-                      <div className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-brand-ink/5 relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-[#FF4D00]" />
-                        <CheckCircle2 className="w-5 h-5 text-[#FF4D00] shrink-0 mt-0.5" />
-                        <p className="text-xs sm:text-sm text-brand-ink font-semibold leading-relaxed">Entenda o que está travando o seu avanço <span className="font-black text-[#FF4D00]">profissional e financeiro</span> e como se libertar disso.</p>
-                      </div>
-                    </div>
-
-                    <div className="hidden lg:flex items-center gap-4 py-4 px-6 bg-[#FF4D00]/5 border border-[#FF4D00]/20 border-l-4 border-l-[#FF4D00] rounded-sm mt-auto">
-                      <Target className="w-8 h-8 text-[#FF4D00] shrink-0" />
-                      <p className="text-sm border-l border-[#FF4D00]/20 pl-4 font-bold text-brand-ink leading-tight">
-                        <span className="text-[#FF4D00] uppercase tracking-[0.2em] block text-[10px] mb-1">Atenção</span>
-                        O link de acesso ao conteúdo exclusivo e materiais de apoio será enviado no <span className="text-brand-red font-black">Grupo VIP do WhatsApp</span>. Garanta sua vaga agora.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* FORM */}
-                  <div id="inscricao-form" className="relative group w-full max-w-md mx-auto lg:max-w-none">
+                  
+                  {/* FORM ON THE LEFT */}
+                  <div id="inscricao-form" className="relative group w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
                     <div className="absolute -inset-2 bg-blue-500/20 rounded-2xl blur-2xl group-hover:bg-blue-500/30 transition-all opacity-0 group-hover:opacity-100" />
                     <form 
                       onSubmit={handleSubmit(onSubmit)} 
                       className="bg-[#003B95] text-white p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,59,149,0.4)] rounded-2xl relative border border-white/10"
                     >
                       <div className="text-center mb-8">
-                        <div className="bg-green-400/20 text-green-300 border border-green-400/30 text-[10px] font-black uppercase tracking-[0.2em] py-1.5 px-4 mb-5 rounded-full inline-flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                          Inscrição 100% Online e Gratuita
+                        <div className="bg-brand-red text-white border border-brand-red/20 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] py-1.5 px-4 mb-4 rounded-full inline-flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                          🔥 Masterclass Gratuita - Vagas Limitadas
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-black mb-3 text-white leading-tight">Gere seu ingresso VIP para a Masterclass</h2>
-                        <p className="text-white/80 text-[13px] font-medium leading-relaxed px-4">
-                          O acesso completo e o material de apoio serão enviados direto no seu WhatsApp.
+                        <h2 className="text-2xl md:text-4xl font-black mb-3 text-white leading-tight">CADASTRE-SE AGORA</h2>
+                        <p className="text-white/80 text-[13px] md:text-sm font-medium leading-relaxed px-4">
+                          Preencha e garanta seu ingresso vip para a masterclass.
                         </p>
                       </div>
 
@@ -255,7 +216,7 @@ export default function App() {
                         >
                           {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (
                             <>
-                              <ArrowRight className="w-5 h-5" /> QUERO MINHA VAGA AGORA
+                              <ArrowRight className="w-5 h-5" /> QUERO ME CADASTRAR AGORA
                             </>
                           )}
                         </button>
@@ -273,6 +234,27 @@ export default function App() {
                       </div>
                     </form>
                   </div>
+
+                  {/* TEXT ON THE RIGHT */}
+                  <div className="pt-4 lg:pt-0 w-full max-w-xl mx-auto lg:order-2 flex flex-col justify-center">
+                    <p className="text-base md:text-lg text-brand-ink/80 font-medium leading-relaxed mb-6">
+                      Se você é mulher e já passou dos 30 anos, é provável que o corpo comece a dar sinais de alerta. Dores persistentes na <strong className="text-brand-ink font-black">lombar, tensão constante nos ombros, rigidez no pescoço, enxaquecas e até a temida fibromialgia</strong> não são apenas "coisas da idade" — são reflexos de uma vida sobrecarregada.
+                    </p>
+                    <p className="text-base md:text-lg text-brand-ink/80 font-medium leading-relaxed mb-6">
+                      Nesta <strong className="text-brand-ink font-black text-[#FF4D00]">masterclass exclusiva</strong>, você vai entender como alinhar os <strong className="text-brand-ink font-black">5 Pilares (Saúde Física, Emocional, Mental, Espiritual e Financeira)</strong> é o único caminho para ir na raiz dessas dores, devolver sua energia vital e destravar seu progresso em todas as áreas.
+                    </p>
+                    <div className="bg-[#FF4D00]/5 border border-[#FF4D00]/20 border-l-4 border-l-[#FF4D00] p-6 rounded-r-xl mt-4 relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4D00]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover:scale-150" />
+                      <p className="text-sm font-bold text-brand-ink leading-relaxed relative z-10">
+                        <span className="text-[#FF4D00] uppercase tracking-[0.2em] block text-[10px] mb-2 font-black flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] animate-pulse"></span>
+                          Atenção ao próximo passo
+                        </span>
+                        Para garantir seu acesso, <strong>preencha o formulário</strong> ao lado. Em seguida, você será direcionada para <strong>entrar no grupo oficial e exclusivo no WhatsApp</strong>, onde enviaremos o link da aula e todos os materiais de apoio.
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
               </section>
 
@@ -454,9 +436,9 @@ export default function App() {
               </section>
 
               {/* AUTORIDADE */}
-              <section className="py-16 md:py-32 px-6 bg-brand-petroleum-light">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 md:gap-24 items-center">
-                  <div className="relative group max-w-sm mx-auto lg:max-w-none w-full">
+              <section className="py-12 md:py-16 px-6 bg-brand-petroleum-light">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 md:gap-16 items-center">
+                  <div className="relative group max-w-xs mx-auto lg:max-w-none w-full">
                     <div className="absolute -inset-6 bg-brand-accent/10 -z-10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img 
                       src={robertoImg} 
@@ -465,15 +447,15 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <div className="space-y-8 md:space-y-10">
+                  <div className="space-y-6 md:space-y-8">
                     <div>
-                      <h3 className="serif text-5xl md:text-7xl text-brand-ink leading-tight md:leading-[1.1] mb-4">Com quem você vai aprender?</h3>
-                      <p className="text-xl md:text-2xl font-black text-brand-red uppercase tracking-widest">
+                      <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight mb-2">Com quem você vai aprender?</h3>
+                      <p className="text-lg md:text-xl font-black text-brand-red uppercase tracking-widest">
                         Roberto Firmino dos Santos
                       </p>
                     </div>
-                    <div className="space-y-6 text-lg md:text-xl text-brand-ink/80 font-light leading-relaxed">
-                      <p className="font-medium text-brand-ink border-l-4 border-brand-accent pl-6 text-xl md:text-2xl">
+                    <div className="space-y-4 text-base md:text-lg text-brand-ink/80 font-light leading-relaxed">
+                      <p className="font-medium text-brand-ink border-l-4 border-brand-accent pl-6 text-lg md:text-xl mb-6">
                         Eu não ensino baseado apenas em teorias ou livros. Minha trajetória começou muito antes dos palcos, mentorias e grandes empresários. Vivi na prática a <span className="text-brand-red font-black">dor</span>, a <span className="text-brand-red font-black">escassez</span> e o <span className="text-brand-red font-black">peso das histórias familiares</span> que travam a vida financeira, emocional e física.
                       </p>
                       <p>
