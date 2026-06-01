@@ -82,7 +82,7 @@ export default function Obrigado() {
               </div>
             )}
             
-            <h2 className="serif text-4xl md:text-7xl mb-8 text-brand-red leading-tight font-black uppercase">
+            <h2 className="serif text-3xl md:text-5xl mb-8 text-brand-red leading-tight font-black uppercase">
               🚨 FALTA SÓ MAIS UM PASSO PARA CONFIRMAR SUA INSCRIÇÃO!
             </h2>
             
