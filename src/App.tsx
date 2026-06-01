@@ -151,7 +151,7 @@ export default function App() {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
                   
                   {/* FORM ON THE LEFT */}
-                  <div id="inscricao-form" className="relative group w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
+                  <div id="inscricao-form" className="relative group w-full max-w-md mx-auto lg:max-w-none order-1 lg:order-1">
                     <div className="absolute -inset-2 bg-blue-500/20 rounded-2xl blur-2xl group-hover:bg-blue-500/30 transition-all opacity-0 group-hover:opacity-100" />
                     <form 
                       onSubmit={handleSubmit(onSubmit)} 
