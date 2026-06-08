@@ -140,8 +140,9 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 -z-10 blur-3xl rounded-full translate-x-1/2" />
                 
                 <div className="max-w-5xl mx-auto text-center mb-10 md:mb-16">
-                  <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.05] text-brand-ink tracking-tight uppercase">
-                    OS <span className="text-[#FF4D00]">5 PILARES</span> DA VIDA SAUDÁVEL
+                  <h1 className="font-black leading-[1.05] text-brand-ink tracking-tight uppercase flex flex-col gap-1 md:gap-2">
+                    <span className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-[#FF4D00]">DORES E DOENÇAS CRÔNICAS</span>
+                    <span className="text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0.15em] font-bold">OS 5 PILARES DA VIDA SAUDÁVEL</span>
                   </h1>
                   <p className="mt-6 text-lg md:text-xl text-brand-ink/80 font-medium max-w-3xl mx-auto">
                     Descubra a importância de ter os seus pilares alinhados para uma vida plena: <strong className="text-brand-ink font-bold">Saúde Física, Emocional, Mental, Espiritual e Financeira</strong>.
@@ -236,7 +237,7 @@ export default function App() {
                   </div>
 
                   {/* TEXT ON THE RIGHT */}
-                  <div className="pt-4 lg:pt-0 w-full max-w-xl mx-auto lg:order-2 flex flex-col justify-center">
+                  <div className="pt-4 lg:pt-0 w-full max-w-xl mx-auto order-2 flex flex-col justify-center">
                     <p className="text-base md:text-lg text-brand-ink/80 font-medium leading-relaxed mb-6">
                       Se você é mulher e já passou dos 30 anos, é provável que o corpo comece a dar sinais de alerta. Dores persistentes na <strong className="text-brand-ink font-black">lombar, tensão constante nos ombros, rigidez no pescoço, enxaquecas e até a temida fibromialgia</strong> não são apenas "coisas da idade" — são reflexos de uma vida sobrecarregada.
                     </p>
