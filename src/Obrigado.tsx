@@ -64,7 +64,7 @@ export default function Obrigado() {
   return (
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         MASTERCLASS | AO VIVO | GRATUITA | DIA 09/06/26 às 20 horas
+         COMUNIDADE GRATUITA | A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -88,7 +88,7 @@ export default function Obrigado() {
             
             <div className="max-w-3xl mx-auto p-10 bg-brand-petroleum-light shadow-sm mb-12">
               <p className="text-xl md:text-2xl leading-relaxed text-brand-ink font-light">
-                O seu cadastro está quase pronto, mas o link da aula <strong className="text-brand-red">não será enviado por e-mail</strong>. Para evitar que você perca essa oportunidade, o acesso será liberado APENAS dentro do Grupo VIP do WhatsApp.
+                O seu cadastro está quase pronto. Para evitar que você perca os comunicados, o acesso e os avisos VIP serão liberados APENAS dentro do nosso Grupo do WhatsApp.
               </p>
             </div>
 
@@ -110,7 +110,7 @@ export default function Obrigado() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-brand-ink/10 pt-20 items-start">
             <div className="space-y-10">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">Enquanto o dia 09/06 não chega...</span>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">E na nossa comunidade...</span>
                 <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight">Conheça a base do Programa: A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR</h3>
               </div>
               <div className="space-y-6 text-lg md:text-xl text-brand-ink font-light leading-relaxed">
@@ -121,7 +121,7 @@ export default function Obrigado() {
                   O que elas não sabem é que o prejuízo financeiro e a dor crônica vêm do mesmo bloqueio inconsciente.
                 </p>
                 <p>
-                  Não é falta de sorte. Não é misticismo. É ciência sistêmica. Na nossa aula ao vivo, você vai entender a essência do método que está limpando memórias de luto, falências e segredos.
+                  Não é falta de sorte. Não é misticismo. É ciência sistêmica. Na nossa comunidade, você vai entender a essência do método que está limpando memórias de luto, falências e segredos familiares.
                 </p>
               </div>
             </div>
@@ -148,24 +148,10 @@ export default function Obrigado() {
         </motion.div>
       </main>
 
-      <footer className="bg-brand-ink py-24 px-6 text-white overflow-hidden relative">
+      <footer className="bg-[#808000] py-24 px-6 text-white overflow-hidden relative">
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start mb-20 border-b border-white/10 pb-20">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Data Reservada</p>
-              <p className="serif text-3xl">09 de Junho às 20h</p>
-            </div>
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Transmissão</p>
-              <p className="serif text-3xl">Ao vivo no YouTube</p>
-            </div>
-            <div className="text-left md:text-right">
-              <p className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-6">Suporte</p>
-              <p className="text-lg md:text-base lg:text-lg opacity-90">equipe.hdsf@robertofirminodossantos.com.br</p>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-70">
-            <p>© 2026 • Os 5 Pilares da Vida Saudável</p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest opacity-70 border-t border-white/10 pt-10">
+            <p>© 2026 • A História do Dinheiro em Meu Sistema Familiar</p>
             <div className="flex gap-10">
               <button 
                 onClick={() => setActiveModal('terms')}
