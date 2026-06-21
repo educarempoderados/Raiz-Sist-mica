@@ -128,6 +128,27 @@ export default function Admin() {
     return matchBusca;
   });
 
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  const syncBrevo = async () => {
+    if (!window.confirm(`Deseja sincronizar ${filteredInscricoes.length} contatos com o Brevo (Email Marketing)?`)) return;
+    setIsSyncing(true);
+    try {
+      const response = await fetch('/api/brevo/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contacts: filteredInscricoes })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Erro na sincronização');
+      alert(`Sincronização concluída! ${data.results.length} contatos processados.`);
+    } catch (err: any) {
+      alert(`Falha ao sincronizar: ${err.message}`);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   const exportCSV = () => {
     const headers = ['Nome', 'Email', 'WhatsApp', 'Data de Inscrição', 'Entrou no Grupo'];
     const rows = filteredInscricoes.map(i => [
@@ -249,12 +270,20 @@ export default function Admin() {
               <p className="text-4xl font-black text-brand-ink">{inscricoes.filter(i => i.entrouGrupo).length}</p>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={fetchInscricoes}
               className="flex items-center gap-2 bg-white text-brand-ink px-6 py-3 border border-black/10 hover:border-brand-accent font-bold text-xs uppercase tracking-widest shadow-sm transition-all hover:bg-black/5 active:scale-95"
             >
               <RefreshCw className={cn("w-4 h-4", fetchingInscricoes && "animate-spin")} /> Atualizar
+            </button>
+            <button 
+              onClick={syncBrevo}
+              disabled={isSyncing}
+              className="flex items-center gap-2 bg-[#0092ff]/10 text-[#0092ff] hover:bg-[#0092ff] hover:text-white px-6 py-3 border border-[#0092ff]/20 font-bold text-xs uppercase tracking-widest shadow-sm transition-all active:scale-95 disabled:opacity-50"
+            >
+              <Mail className={cn("w-4 h-4", isSyncing && "animate-pulse")} /> 
+              {isSyncing ? "Sincronizando..." : "Sincronizar CRM Brevo"}
             </button>
             <button 
               onClick={exportCSV}

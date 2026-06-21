@@ -110,6 +110,13 @@ export default function App() {
         entrouGrupo: false
       });
 
+      // Sincronizar com CRM Brevo silenciosamente
+      fetch('/api/brevo/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(err => console.error('Erro ao enviar para Brevo:', err));
+
       localStorage.setItem('inscricao_pilares_saudaveis', JSON.stringify({ ...data, id: docRef.id }));
       window.location.href = '/obrigado';
     } catch (err) {
