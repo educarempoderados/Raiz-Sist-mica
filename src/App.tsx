@@ -161,11 +161,11 @@ export default function App() {
                       <div className="text-center mb-8">
                         <div className="bg-brand-red text-white border border-brand-red/20 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] py-1.5 px-4 mb-4 rounded-full inline-flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                          🔥 Comunidade Gratuita - Participe Agora
+                          🔥 Grupo Exclusivo Gratuito - Participe Agora
                         </div>
                         <h2 className="text-2xl md:text-4xl font-black mb-3 text-white leading-tight">CADASTRE-SE AGORA</h2>
                         <p className="text-white/80 text-[13px] md:text-sm font-medium leading-relaxed px-4">
-                          Preencha e garanta seu acesso gratuito à nossa comunidade.
+                          Preencha e garanta seu acesso gratuito ao nosso grupo exclusivo.
                         </p>
                       </div>
 
@@ -217,7 +217,7 @@ export default function App() {
                         >
                           {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : (
                             <>
-                              <ArrowRight className="w-5 h-5" /> QUERO ENTRAR NA COMUNIDADE
+                              <ArrowRight className="w-5 h-5" /> QUERO ENTRAR NO GRUPO EXCLUSIVO
                             </>
                           )}
                         </button>

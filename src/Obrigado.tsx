@@ -6,15 +6,6 @@ import { collection, addDoc, doc, updateDoc, serverTimestamp } from 'firebase/fi
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LHOEUdVmQqA9MAfML9KlP7";
 
-function DiscoveryItem({ title, text }: { title: string, text: string }) {
-  return (
-    <div className="space-y-2">
-      <h5 className="text-lg font-black uppercase tracking-widest text-brand-accent">/ {title}</h5>
-      <p className="text-lg text-white/90 leading-relaxed font-light">{text}</p>
-    </div>
-  );
-}
-
 export default function Obrigado() {
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [activeModal, setActiveModal] = useState<'terms' | null>(null);
@@ -64,7 +55,7 @@ export default function Obrigado() {
   return (
     <div className="min-h-screen bg-white relative overflow-x-hidden selection:bg-brand-accent/20 font-sans text-brand-ink">
       <div className="bg-brand-red text-white text-center py-4 px-4 text-xs md:text-base font-black tracking-widest uppercase sticky top-0 z-50 shadow-lg">
-         COMUNIDADE GRATUITA | A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR
+         GRUPO EXCLUSIVO GRATUITO | A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR
       </div>
 
       <main className="relative z-10 w-full overflow-hidden">
@@ -78,17 +69,28 @@ export default function Obrigado() {
             {isAlreadyRegistered && (
               <div className="mb-8 bg-brand-petroleum-light py-4 px-8 border-l-4 border-brand-accent inline-flex items-center gap-4 text-brand-petroleum">
                 <UserCheck className="w-6 h-6" />
-                <span className="text-base font-black uppercase tracking-widest">Você já está inscrita no sistema!</span>
+                <span className="text-base font-black uppercase tracking-widest">Sua inscrição já consta no sistema!</span>
               </div>
             )}
             
-            <h2 className="serif text-3xl md:text-5xl mb-8 text-brand-red leading-tight font-black uppercase">
-              🚨 FALTA SÓ MAIS UM PASSO PARA CONFIRMAR SUA INSCRIÇÃO!
-            </h2>
+            <div className="relative mb-12 pt-6">
+              <div className="inline-flex flex-col items-center justify-center space-y-8">
+                <div className="relative">
+                   <div className="absolute -inset-4 bg-brand-red/10 blur-xl rounded-full animate-pulse"></div>
+                   <div className="w-20 h-20 bg-brand-red text-white shadow-[0_0_40px_rgba(255,77,0,0.3)] rounded-full flex items-center justify-center relative z-10 animate-bounce">
+                     <AlertCircle className="w-10 h-10" />
+                   </div>
+                </div>
+                <h2 className="serif text-3xl md:text-4xl lg:text-5xl text-brand-ink leading-tight font-black uppercase max-w-4xl mx-auto px-4">
+                  Falta só <span className="text-brand-red pb-1 border-b-4 border-brand-red">mais um passo</span> para confirmar sua inscrição!
+                </h2>
+              </div>
+            </div>
             
-            <div className="max-w-3xl mx-auto p-10 bg-brand-petroleum-light shadow-sm mb-12">
-              <p className="text-xl md:text-2xl leading-relaxed text-brand-ink font-light">
-                O seu cadastro está quase pronto. Para evitar que você perca os comunicados, o acesso e os avisos VIP serão liberados APENAS dentro do nosso Grupo do WhatsApp.
+            <div className="max-w-3xl mx-auto p-8 md:p-10 bg-[#f4fce3] border border-[#d2e8ab] border-l-8 border-l-[#808000] rounded-r-2xl mb-12 relative overflow-hidden shadow-lg">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#808000]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+              <p className="text-xl md:text-2xl leading-relaxed text-brand-ink font-medium relative z-10">
+                O seu cadastro está quase pronto. Para não perder nada, os comunicados, o acesso, os avisos VIP e <strong className="font-black text-[#4e4e00] uppercase tracking-wide bg-[#808000]/10 px-2 py-1 mx-1 rounded whitespace-nowrap">conteúdos exclusivos</strong> serão liberados APENAS dentro do nosso Grupo do WhatsApp.
               </p>
             </div>
 
@@ -107,10 +109,10 @@ export default function Obrigado() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-brand-ink/10 pt-20 items-start">
+          <div className="max-w-4xl mx-auto border-t border-brand-ink/10 pt-20 text-center">
             <div className="space-y-10">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">E na nossa comunidade...</span>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent mb-4 block">E no nosso grupo exclusivo...</span>
                 <h3 className="serif text-4xl md:text-5xl text-brand-ink leading-tight">Conheça a base do Programa: A HISTÓRIA DO DINHEIRO EM MEU SISTEMA FAMILIAR</h3>
               </div>
               <div className="space-y-6 text-lg md:text-xl text-brand-ink font-light leading-relaxed">
@@ -121,27 +123,8 @@ export default function Obrigado() {
                   O que elas não sabem é que o prejuízo financeiro e a dor crônica vêm do mesmo bloqueio inconsciente.
                 </p>
                 <p>
-                  Não é falta de sorte. Não é misticismo. É ciência sistêmica. Na nossa comunidade, você vai entender a essência do método que está limpando memórias de luto, falências e segredos familiares.
+                  Não é falta de sorte. Não é misticismo. É ciência sistêmica. No nosso grupo exclusivo, você vai entender a essência do método que está limpando memórias de luto, falências e segredos familiares.
                 </p>
-              </div>
-            </div>
-
-            <div className="bg-brand-ink text-white p-10 md:p-16 shadow-2xl relative border-l-8 border-brand-accent">
-              <h4 className="serif text-3xl text-brand-accent uppercase tracking-widest mb-12">O que você vai descobrir com esse método:</h4>
-              
-              <div className="space-y-10">
-                <DiscoveryItem 
-                  title="A Transição de Postura" 
-                  text="Como sair da postura infantil e vitimista perante a vida e assumir a posição de adulto, o único capaz de gerar verdadeira abundância." 
-                />
-                <DiscoveryItem 
-                  title="O Sintoma é um Mensageiro" 
-                  text="A doença não é o problema, mas a tentativa do seu corpo de alertar que a estrutura familiar está fora de ordem." 
-                />
-                <DiscoveryItem 
-                  title="Destravando a Prosperidade" 
-                  text="Como limpar as memórias de luto, falências e dores do passado para não precisar repetir os fracassos dos seus antepassados por 'lealdade invisível'." 
-                />
               </div>
             </div>
           </div>
