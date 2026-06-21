@@ -99,13 +99,16 @@ export default function Obrigado() {
               target="_blank"
               onClick={handleWhatsAppClick}
               rel="no-referrer"
-              className="inline-flex items-center justify-center bg-[#25D366] text-white font-black px-6 py-2 rounded-none hover:bg-brand-ink transition-all shadow-2xl shadow-green-500/20 text-sm md:text-lg uppercase tracking-widest active:scale-95 leading-none h-auto min-h-0"
+              className="group relative inline-flex items-center justify-center bg-[#25D366] text-white font-black px-12 py-6 rounded-2xl hover:bg-[#20bd5a] transition-all duration-300 shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:shadow-[0_0_60px_rgba(37,211,102,0.8)] hover:-translate-y-1 hover:scale-105 text-xl md:text-2xl uppercase tracking-[0.2em] overflow-hidden"
             >
-              CONCLUIR INSCRIÇÃO
+              <div className="absolute inset-0 bg-white/20 w-0 group-hover:w-full transition-all duration-500 ease-out opacity-0 group-hover:opacity-100" />
+              <span className="relative z-10 flex items-center gap-3">
+                CONCLUIR INSCRIÇÃO
+              </span>
             </a>
             
             <p className="mt-8 text-sm font-bold text-brand-ink/40 uppercase tracking-widest">
-              Fique tranquila: o grupo é silenciado e só nossa equipe enviará os avisos importantes.
+              Não se preocupe: o grupo é silenciado e só nossa equipe enviará os avisos importantes.
             </p>
           </div>
 
