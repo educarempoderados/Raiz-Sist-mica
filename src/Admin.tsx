@@ -235,9 +235,9 @@ export default function Admin() {
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-brand-ink">
       <header className="bg-brand-ink text-white py-6 px-8 flex justify-between items-center shadow-lg sticky top-0 z-50">
-        <div>
-          <h1 className="serif text-2xl md:text-3xl font-black tracking-tight text-white m-0">Inscritos</h1>
-          <p className="text-brand-accent text-xs uppercase tracking-widest font-bold mt-1">Visão Geral de Leads</p>
+        <div className="flex items-center gap-4">
+          <p className="text-brand-accent text-sm uppercase tracking-widest font-bold">Administração de leads</p>
+          <img src="/logo_hdsf.png" alt="HDSF Logo" className="h-10 md:h-12 object-contain" />
         </div>
         <div className="flex items-center gap-6">
           <span className="text-sm font-medium text-white/60 hidden md:inline">{user.email}</span>
@@ -257,21 +257,21 @@ export default function Admin() {
           
           {/* Stats Row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-brand-accent">
-              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Total de Inscritos</p>
-              <p className="text-4xl font-black text-brand-ink">{inscricoes.length}</p>
+            <div className="bg-[#FF4D00]/10 p-6 shadow-sm border border-[#FF4D00]/20 rounded-xl border-l-4 border-l-[#FF4D00]">
+              <p className="text-[11px] font-black uppercase tracking-widest text-brand-ink/60 mb-1">Total de Inscritos</p>
+              <p className="text-4xl font-black text-[#FF4D00]">{inscricoes.length}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-brand-ink">
-              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Acessos à Página</p>
-              <p className="text-4xl font-black text-brand-ink">{stats.homeVisits}</p>
+            <div className="bg-gray-100 p-6 shadow-sm border border-gray-200 rounded-xl border-l-4 border-l-gray-500">
+              <p className="text-[11px] font-black uppercase tracking-widest text-brand-ink/60 mb-1">Acessos à Página</p>
+              <p className="text-4xl font-black text-gray-700">{stats.homeVisits}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-[#25D366]/40">
-              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Cliques no Link (Whats)</p>
-              <p className="text-4xl font-black text-brand-ink">{stats.whatsappClicks}</p>
+            <div className="bg-[#003B95]/10 p-6 shadow-sm border border-[#003B95]/20 rounded-xl border-l-4 border-l-[#003B95]">
+              <p className="text-[11px] font-black uppercase tracking-widest text-brand-ink/60 mb-1">Cliques no Link (Whats)</p>
+              <p className="text-4xl font-black text-[#003B95]">{stats.whatsappClicks}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-[#25D366]">
-              <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Confirmados no Grupo</p>
-              <p className="text-4xl font-black text-brand-ink">{inscricoes.filter(i => i.entrouGrupo).length}</p>
+            <div className="bg-[#25D366]/10 p-6 shadow-sm border border-[#25D366]/20 rounded-xl border-l-4 border-l-[#25D366]">
+              <p className="text-[11px] font-black uppercase tracking-widest text-brand-ink/60 mb-1">Confirmados no Grupo</p>
+              <p className="text-4xl font-black text-[#20bd5a]">{inscricoes.filter(i => i.entrouGrupo).length}</p>
             </div>
           </div>
 
