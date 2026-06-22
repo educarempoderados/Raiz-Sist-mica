@@ -236,8 +236,8 @@ export default function Admin() {
     <div className="min-h-screen bg-[#F5F5F7] text-brand-ink">
       <header className="bg-brand-ink text-white py-6 px-8 flex justify-between items-center shadow-lg sticky top-0 z-50">
         <div className="flex items-center gap-4">
-          <p className="text-brand-accent text-sm uppercase tracking-widest font-bold">Administração de leads</p>
           <img src="/logo_hdsf.png" alt="HDSF Logo" className="h-10 md:h-12 object-contain" />
+          <p className="text-brand-accent text-sm uppercase tracking-widest font-bold">Administração de leads</p>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-sm font-medium text-white/60 hidden md:inline">{user.email}</span>
