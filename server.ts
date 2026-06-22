@@ -1,14 +1,12 @@
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import fetch from "node-fetch"; // Node 18+ has fetch natively, but we're in typescript environment so using global fetch is fine.
-// Wait, we don't need node-fetch because we use native Node 18+ fetch. Let's just use native fetch.
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  app.use(express.json());
+  app.use(express.json({ limit: '50mb' }));
 
   // API Route to add contact to Brevo
   app.post("/api/brevo/contact", async (req, res) => {

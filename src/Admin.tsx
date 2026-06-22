@@ -139,7 +139,13 @@ export default function Admin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contacts: filteredInscricoes })
       });
-      const data = await response.json();
+      let data;
+      const textResponse = await response.text();
+      try {
+        data = JSON.parse(textResponse);
+      } catch (e) {
+        throw new Error(`Servidor retornou um erro não esperado: ${textResponse.substring(0, 100)}`);
+      }
       if (!response.ok) throw new Error(data.error || 'Erro na sincronização');
       alert(`Sincronização concluída! ${data.results.length} contatos processados.`);
     } catch (err: any) {
