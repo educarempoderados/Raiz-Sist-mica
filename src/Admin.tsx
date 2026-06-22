@@ -250,46 +250,52 @@ export default function Admin() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto p-6 md:p-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
-          <div className="flex flex-wrap gap-4">
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-brand-accent">
+      <main className="max-w-7xl mx-auto p-6 md:p-10 space-y-8">
+        
+        {/* Painel de Estatísticas e Ações */}
+        <div className="bg-[#f4fce3] border border-[#d2e8ab] rounded-2xl p-6 md:p-8 flex flex-col gap-6 shadow-sm">
+          
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-brand-accent">
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Total de Inscritos</p>
               <p className="text-4xl font-black text-brand-ink">{inscricoes.length}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-brand-ink">
+            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-brand-ink">
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Acessos à Página</p>
               <p className="text-4xl font-black text-brand-ink">{stats.homeVisits}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]/40">
+            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-[#25D366]/40">
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Cliques no Link (Whats)</p>
               <p className="text-4xl font-black text-brand-ink">{stats.whatsappClicks}</p>
             </div>
-            <div className="bg-white p-6 shadow-sm border border-black/5 min-w-[180px] border-l-4 border-[#25D366]">
+            <div className="bg-white p-6 shadow-sm border border-black/5 rounded-xl border-l-4 border-l-[#25D366]">
               <p className="text-[11px] font-black uppercase tracking-widest text-black/40 mb-1">Confirmados no Grupo</p>
               <p className="text-4xl font-black text-brand-ink">{inscricoes.filter(i => i.entrouGrupo).length}</p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4">
+
+          {/* Actions Row */}
+          <div className="flex flex-wrap gap-4 items-center">
             <button 
               onClick={fetchInscricoes}
-              className="flex items-center gap-2 bg-white text-brand-ink px-6 py-3 border border-black/10 hover:border-brand-accent font-bold text-xs uppercase tracking-widest shadow-sm transition-all hover:bg-black/5 active:scale-95"
+              className="flex items-center gap-2 bg-white text-brand-ink px-6 py-3 border border-black/10 rounded-xl hover:border-brand-accent font-bold text-xs uppercase tracking-widest shadow-sm transition-all hover:bg-black/5 active:scale-95"
             >
               <RefreshCw className={cn("w-4 h-4", fetchingInscricoes && "animate-spin")} /> Atualizar
             </button>
             <button 
+              onClick={exportCSV}
+              className="flex items-center gap-2 bg-brand-ink text-white px-6 py-3 rounded-xl hover:bg-brand-accent font-bold text-xs uppercase tracking-widest shadow-xl transition-all active:scale-95"
+            >
+              <FileDown className="w-4 h-4" /> Exportar CSV
+            </button>
+            <button 
               onClick={syncBrevo}
               disabled={isSyncing}
-              className="flex items-center gap-2 bg-[#0092ff]/10 text-[#0092ff] hover:bg-[#0092ff] hover:text-white px-6 py-3 border border-[#0092ff]/20 font-bold text-xs uppercase tracking-widest shadow-sm transition-all active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-2 bg-[#0092ff]/10 text-[#0092ff] rounded-xl hover:bg-[#0092ff] hover:text-white px-6 py-3 border border-[#0092ff]/20 font-bold text-xs uppercase tracking-widest shadow-sm transition-all active:scale-95 disabled:opacity-50"
             >
               <Mail className={cn("w-4 h-4", isSyncing && "animate-pulse")} /> 
               {isSyncing ? "Sincronizando..." : "Sincronizar CRM Brevo"}
-            </button>
-            <button 
-              onClick={exportCSV}
-              className="flex items-center gap-2 bg-brand-ink text-white px-6 py-3 hover:bg-brand-accent font-bold text-xs uppercase tracking-widest shadow-xl transition-all active:scale-95"
-            >
-              <FileDown className="w-4 h-4" /> Exportar CSV
             </button>
           </div>
         </div>
