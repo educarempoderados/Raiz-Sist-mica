@@ -110,15 +110,20 @@ export default function Admin() {
   };
 
   const handleDelete = async (id: string, nome: string) => {
-    if (window.confirm(`Tem certeza que deseja excluir '${nome}'?`)) {
-      try {
-        await deleteDoc(doc(db, 'inscricoes', id));
-        setInscricoes(prev => prev.filter(i => i.id !== id));
-      } catch (err: any) {
-        console.error('Erro ao excluir:', err);
-        alert('Falha ao excluir o registro.');
+    setConfirmModal({
+      isOpen: true,
+      message: `Tem certeza que deseja excluir '${nome}'?`,
+      onConfirm: async () => {
+        setConfirmModal({ isOpen: false, message: '', onConfirm: () => {} });
+        try {
+          await deleteDoc(doc(db, 'inscricoes', id));
+          setInscricoes(prev => prev.filter(i => i.id !== id));
+        } catch (err: any) {
+          console.error('Erro ao excluir:', err);
+          alert('Falha ao excluir o registro.');
+        }
       }
-    }
+    });
   };
 
   const filteredInscricoes = inscricoes.filter(i => {
@@ -129,30 +134,37 @@ export default function Admin() {
   });
 
   const [isSyncing, setIsSyncing] = useState(false);
+  const [confirmModal, setConfirmModal] = useState<{isOpen: boolean, message: string, onConfirm: () => void}>({ isOpen: false, message: '', onConfirm: () => {} });
 
   const syncBrevo = async () => {
-    if (!window.confirm(`Deseja sincronizar ${filteredInscricoes.length} contatos com o Brevo (Email Marketing)?`)) return;
-    setIsSyncing(true);
-    try {
-      const response = await fetch('/api/brevo/sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contacts: filteredInscricoes })
-      });
-      let data;
-      const textResponse = await response.text();
-      try {
-        data = JSON.parse(textResponse);
-      } catch (e) {
-        throw new Error(`Servidor retornou um erro não esperado: ${textResponse.substring(0, 100)}`);
+    setConfirmModal({
+      isOpen: true,
+      message: `Deseja sincronizar ${filteredInscricoes.length} contatos com o Brevo (Email Marketing)?`,
+      onConfirm: async () => {
+        setConfirmModal({ isOpen: false, message: '', onConfirm: () => {} });
+        setIsSyncing(true);
+        try {
+          const response = await fetch('/api/brevo/sync', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contacts: filteredInscricoes })
+          });
+          let data;
+          const textResponse = await response.text();
+          try {
+            data = JSON.parse(textResponse);
+          } catch (e) {
+            throw new Error(`Servidor retornou um erro não esperado: ${textResponse.substring(0, 100)}`);
+          }
+          if (!response.ok) throw new Error(data.error || 'Erro na sincronização');
+          alert(`Sincronização concluída! ${data.results.length} contatos processados.`);
+        } catch (err: any) {
+          alert(`Falha ao sincronizar: ${err.message}`);
+        } finally {
+          setIsSyncing(false);
+        }
       }
-      if (!response.ok) throw new Error(data.error || 'Erro na sincronização');
-      alert(`Sincronização concluída! ${data.results.length} contatos processados.`);
-    } catch (err: any) {
-      alert(`Falha ao sincronizar: ${err.message}`);
-    } finally {
-      setIsSyncing(false);
-    }
+    });
   };
 
   const exportCSV = () => {
@@ -429,6 +441,29 @@ export default function Admin() {
           </div>
         </div>
       </main>
+
+      {confirmModal.isOpen && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex flex-col justify-center items-center p-4">
+          <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-sm flex flex-col gap-5">
+            <h3 className="text-xl font-bold text-brand-ink">Confirmação</h3>
+            <p className="text-sm font-medium text-black/70">{confirmModal.message}</p>
+            <div className="flex gap-3 justify-end mt-2">
+              <button 
+                onClick={() => setConfirmModal({ ...confirmModal, isOpen: false })}
+                className="px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-widest text-black/60 hover:bg-black/5 transition-colors"
+              >
+                Cancelar
+              </button>
+              <button 
+                onClick={confirmModal.onConfirm}
+                className="px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-widest bg-brand-ink text-white hover:bg-brand-accent transition-colors shadow-md"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
