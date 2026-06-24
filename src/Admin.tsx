@@ -152,11 +152,11 @@ export default function Admin() {
           let data;
           const textResponse = await response.text();
           try {
-            data = JSON.parse(textResponse);
+            data = textResponse ? JSON.parse(textResponse) : {};
           } catch (e) {
-            throw new Error(`Servidor retornou um erro não esperado: ${textResponse.substring(0, 100)}`);
+            throw new Error(`Erro não esperado (Status ${response.status}): ${textResponse.substring(0, 100) || 'Sem conteúdo'}`);
           }
-          if (!response.ok) throw new Error(data.error || 'Erro na sincronização');
+          if (!response.ok) throw new Error(data.error || `Erro HTTP ${response.status}`);
           alert(`Sincronização concluída! ${data.results.length} contatos processados.`);
         } catch (err: any) {
           alert(`Falha ao sincronizar: ${err.message}`);

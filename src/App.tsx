@@ -154,22 +154,22 @@ export default function App() {
                   </h1>
                   
                   <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 mt-8 mb-4">
+                    <div className="flex items-center gap-2 text-brand-ink font-black uppercase tracking-widest text-xs md:text-sm border border-[#003B95]/20 bg-[#003B95]/10 px-4 py-2 rounded-full">
+                      <Sparkles className="w-4 h-4 text-[#003B95]" />
+                      <span>Masterclass Gratuita</span>
+                    </div>
                     <div className="flex items-center gap-2 text-brand-ink font-black uppercase tracking-widest text-xs md:text-sm border border-[#FF4D00]/20 bg-[#FF4D00]/10 px-4 py-2 rounded-full">
                       <Calendar className="w-4 h-4 text-[#FF4D00]" />
-                      <span>Toda Terça-feira às 20h</span>
+                      <span>TERÇA-FEIRA ÀS 20 HORAS</span>
                     </div>
                     <div className="flex items-center gap-2 text-brand-ink font-black uppercase tracking-widest text-xs md:text-sm border border-[#808000]/20 bg-[#808000]/10 px-4 py-2 rounded-full">
                       <Signal className="w-4 h-4 text-[#808000]" />
                       <span>Ao Vivo no Zoom</span>
                     </div>
-                    <div className="flex items-center gap-2 text-brand-ink font-black uppercase tracking-widest text-xs md:text-sm border border-[#003B95]/20 bg-[#003B95]/10 px-4 py-2 rounded-full">
-                      <Sparkles className="w-4 h-4 text-[#003B95]" />
-                      <span>Masterclass Gratuita</span>
-                    </div>
                   </div>
 
                   <p className="mt-6 text-lg md:text-xl text-brand-ink/80 font-medium max-w-3xl mx-auto">
-                    Descubra a raiz sistêmica dos seus bloqueios financeiros e como a história da sua família afeta sua prosperidade hoje.
+                    Descubra a raiz sistêmica das suas dores e doenças crônicas e como a história da sua família afeta sua saúde hoje.
                   </p>
                 </div>
 
